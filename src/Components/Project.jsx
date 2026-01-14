@@ -9,7 +9,7 @@ const projects = [
   {
     title: "Web-Clone",
     image: project,
-    desc: "A Web clone  ",
+    desc: "A Web clone",
     tech: ["JavaScript", "React", "Tailwind"],
     github: "https://github.com/Mohitverma-code7/Web-Clone",
   },
@@ -42,12 +42,12 @@ export default function Project() {
 
   return (
     <section
+      id="projects"
       className={`py-20 px-6 ${
         theme === "dark"
           ? "bg-[#0A0A09] text-[#9BABAB]"
           : "bg-white text-gray-700"
       }`}
-      id="projects"
     >
       {/* Heading */}
       <h1 className="text-4xl md:text-6xl font-extrabold text-center mb-14">
@@ -59,46 +59,36 @@ export default function Project() {
         {projects.map((item, index) => (
           <div
             key={index}
-            className={`group rounded-3xl overflow-hidden border backdrop-blur-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
+            className={`group rounded-3xl overflow-hidden border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
               theme === "dark"
                 ? "bg-white/5 border-white/10"
                 : "bg-white border-gray-200"
             }`}
           >
-            {/* Image */}
-            <div className="relative overflow-hidden">
+            {/* IMAGE — FULL CLICKABLE */}
+            <a
+              href={item.live || item.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative block overflow-hidden"
+            >
               <img
                 src={item.image}
                 alt={item.title}
-                className="w-full h-56 object-cover group-hover:scale-110 transition duration-500"
+                className="w-full h-56 object-cover transition duration-500 group-hover:scale-110"
               />
 
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-4">
-                {item.live && (
-                  <a
-                    href={item.live}
-                    target="_blank"
-                    className="p-2 rounded-full bg-white text-black hover:scale-110 transition"
-                  >
-                    <Globe />
-                  </a>
-                )}
-                <a
-                  href={item.github}
-                  target="_blank"
-                  className="p-2 rounded-full bg-white text-black hover:scale-110 transition"
-                >
-                  <Github />
-                </a>
-              </div>
-            </div>
+              {/* subtle hover overlay */}
+              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition" />
+            </a>
 
             {/* Content */}
             <div className="p-6 space-y-4">
               <h3 className="text-2xl font-bold">{item.title}</h3>
 
-              <p className="text-sm leading-relaxed opacity-90">{item.desc}</p>
+              <p className="text-sm leading-relaxed opacity-90">
+                {item.desc}
+              </p>
 
               {/* Tech stack */}
               <div className="flex flex-wrap gap-2 pt-2">
@@ -112,16 +102,21 @@ export default function Project() {
                 ))}
               </div>
 
-              {/* Status */}
+              {/* Footer */}
               <div className="flex items-center justify-between pt-4">
                 <span className="flex items-center gap-2 text-xs text-green-500">
                   <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
                   Live & Maintained
                 </span>
 
-                <span className="text-sm font-medium text-blue-500 group-hover:underline">
+                <a
+                  href={item.live || item.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm font-medium text-blue-500 hover:underline"
+                >
                   View Project →
-                </span>
+                </a>
               </div>
             </div>
           </div>
