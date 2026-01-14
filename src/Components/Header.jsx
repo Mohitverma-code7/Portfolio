@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./Navbar";
 import { useTheme } from "../context/ThemeContext";
 import Img from "../assets/Man1.jpg";
-import jsImg from "../assets/js.png";
+import { motion } from "framer-motion";
 import {
   NotebookPen,
   Navigation,
@@ -26,13 +26,19 @@ const Header = () => {
 
   return (
     <header
+       
       id="Header"
       className={`min-h-screen pt-24  ${theme === "dark" ? "bg-[#0A0A09] text-white" : "bg-white text-black"}`}
     >
       <Navbar />
 
       {/* Hero Content */}
-      <div className="max-w-6xl mx-auto px-6 pt-20 md:pt-32 pb-20">
+      <motion.div
+       initial={{opacity: 0, y:100}}
+        transition={{duration: 1.5}}
+        whileInView={{opacity: 1, y:0}}
+        viewport={{once: true}}
+      className="max-w-6xl mx-auto px-6 pt-20 md:pt-32 pb-20">
         <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
           {/* Avatar */}
           <div className="relative shrink-0">
@@ -129,12 +135,17 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
 
       {/* Music Player */}
-      <div className="flex justify-center pb-16">
+      <motion.div
+       initial={{opacity: 0, y:100}}
+        transition={{duration: 1.5}}
+        whileInView={{opacity: 1, y:0}}
+        viewport={{once: true}}
+      className="flex justify-center pb-16">
         <MusicPlayer />
-      </div>
+      </motion.div>
     </header>
   );
 };

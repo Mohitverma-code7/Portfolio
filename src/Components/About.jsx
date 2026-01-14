@@ -2,12 +2,15 @@ import React from "react";
 import { useTheme } from "../context/ThemeContext";
 import Img from "../assets/Man1.jpg";
 import { Award, GraduationCap } from "lucide-react";
+import { motion } from "framer-motion";
 
 const About = () => {
   const { theme } = useTheme();
 
   return (
     <section
+     
+
       id="About"
       className={`w-full py-20 flex flex-col items-center ${
         theme === "dark"
@@ -16,9 +19,14 @@ const About = () => {
       } `}
     >
       {/* Heading */}
-      <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+      <motion.h1 
+      initial={{opacity: 0, y:100}}
+        transition={{duration: 1.5}}
+        whileInView={{opacity: 1, y:0}}
+        viewport={{once: true}}
+      className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
         About <span className="text-blue-500">Me</span>
-      </h1>
+      </motion.h1>
 
       {/* Profile Image */}
       <div className="relative mt-6 mb-8">
@@ -31,18 +39,33 @@ const About = () => {
       </div>
 
       {/* About Text */}
-      <p className="max-w-4xl text-center text-lg leading-relaxed px-6">
+      <motion.p
+      initial={{opacity: 0, y:100}}
+        transition={{duration: 1.5}}
+        whileInView={{opacity: 1, y:0}}
+        viewport={{once: true}}
+      className="max-w-4xl text-center text-lg leading-relaxed px-6">
         Hi, I’m <span className="font-semibold text-blue-500">Mohit Kumar</span>
         , a Frontend Web Developer who loves building clean, fast, and
         responsive web applications. I work with HTML, CSS, JavaScript, React,
         and modern UI tools to create smooth and engaging user experiences.
-      </p>
+      </motion.p>
 
       {/* Section Title */}
-      <h2 className="text-3xl font-bold mt-16 mb-10">What I Do</h2>
+      <motion.h2 
+      initial={{opacity: 0, y:100}}
+        transition={{duration: 1.5}}
+        whileInView={{opacity: 1, y:0}}
+        viewport={{once: true}}
+      className="text-3xl font-bold mt-16 mb-10">What I Do</motion.h2>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full px-6">
+      <motion.div
+      initial={{opacity: 0, y:100}}
+        transition={{duration: 1.5}}
+        whileInView={{opacity: 1, y:0}}
+        viewport={{once: true}}
+      className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full px-6">
         {/* Experience */}
         <div
           className={`group p-8 rounded-3xl border backdrop-blur-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
@@ -99,7 +122,7 @@ const About = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

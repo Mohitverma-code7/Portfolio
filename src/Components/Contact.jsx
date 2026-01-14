@@ -2,6 +2,7 @@ import React from "react";
 import { useTheme } from "../context/ThemeContext";
 import { toast } from "react-toastify";
 import { Mail, User, MessageSquare } from "lucide-react";
+import { motion } from "framer-motion";
 
 const Contact = () => {
   const { theme } = useTheme();
@@ -48,7 +49,11 @@ const Contact = () => {
       </div>
 
       {/* Form Card */}
-      <form
+      <motion.form
+        initial={{opacity: 0, y:100}}
+        transition={{duration: 1.5}}
+        whileInView={{opacity: 1, y:0}}
+        viewport={{once: true}}
         onSubmit={onSubmit}
         className={`max-w-3xl mx-auto p-8 md:p-10 rounded-3xl border backdrop-blur-lg transition  ${theme === "dark" ? "bg-[#0A0A09] text-white" : "bg-white text-black"}`}
       >
@@ -105,7 +110,7 @@ const Contact = () => {
             {result || "Send Message"}
           </button>
         </div>
-      </form>
+      </motion.form>
     </section>
   );
 };

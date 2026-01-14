@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
+import { motion } from "framer-motion";
 
 const blogs = [
   {
@@ -38,19 +39,29 @@ const Article = () => {
   return (
     <section
       id="blogs"
-      className={`py-20 px-6 ${
+      className={`py-40 px-6 ${
         theme === "dark"
           ? "bg-[#0A0A09] text-[#9BABAB]"
           : "bg-white text-gray-700"
       }`}
     >
       <Navbar />
-      <h1 className="text-4xl md:text-6xl font-extrabold text-center mb-14">
+      <motion.h1 
+      initial={{opacity: 0, y:100}}
+        transition={{duration: 1.5}}
+        whileInView={{opacity: 1, y:0}}
+        viewport={{once: true}}
+      className="text-4xl md:text-6xl font-extrabold text-center mb-14">
         My <span className="text-blue-500">Blogs</span>
-      </h1>
+      </motion.h1>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+      <motion.div
+      initial={{opacity: 0, y:100}}
+        transition={{duration: 1.5}}
+        whileInView={{opacity: 1, y:0}}
+        viewport={{once: true}}
+      className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
         {blogs.map((blog, index) => (
           <div
             key={index}
@@ -100,7 +111,7 @@ const Article = () => {
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Show all blogs */}
       

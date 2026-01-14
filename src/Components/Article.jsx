@@ -4,7 +4,7 @@ import git2 from "../assets/GIT1.png";
 import { ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
-
+import { motion } from "framer-motion";
 const blogs = [
   {
     title: "Inside Git: How It Works and the Role of the .git Folder",
@@ -35,12 +35,22 @@ const Article = () => {
       }`}
     >
       {/* Heading */}
-      <h1 className="text-4xl md:text-6xl font-extrabold text-center mb-14">
+      <motion.h1 
+      initial={{opacity: 0, y:100}}
+        transition={{duration: 1.5}}
+        whileInView={{opacity: 1, y:0}}
+        viewport={{once: true}}
+      className="text-4xl md:text-6xl font-extrabold text-center mb-14">
         My <span className="text-blue-500">Blogs</span>
-      </h1>
+      </motion.h1>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+      <motion.div 
+      initial={{opacity: 0, y:100}}
+        transition={{duration: 1.5}}
+        whileInView={{opacity: 1, y:0}}
+        viewport={{once: true}}
+      className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
         {blogs.map((blog, index) => (
           <div
             key={index}
@@ -90,7 +100,7 @@ const Article = () => {
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
 
       {/* Show all blogs */}
       <div className="flex justify-center mt-14">

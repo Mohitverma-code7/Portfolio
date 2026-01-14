@@ -4,6 +4,7 @@ import img1 from "../assets/IMG1.png";
 import img2 from "../assets/IMG2.png";
 import img3 from "../assets/IMG3.png";
 import { useTheme } from "../context/ThemeContext";
+import { motion } from "framer-motion";
 
 const projects = [
   {
@@ -50,12 +51,22 @@ export default function Project() {
       }`}
     >
       {/* Heading */}
-      <h1 className="text-4xl md:text-6xl font-extrabold text-center mb-14">
+      <motion.h1 
+      initial={{opacity: 0, y:100}}
+        transition={{duration: 1.5}}
+        whileInView={{opacity: 1, y:0}}
+        viewport={{once: true}}
+      className="text-4xl md:text-6xl font-extrabold text-center mb-14">
         My <span className="text-blue-500">Projects</span>
-      </h1>
+      </motion.h1>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+      <motion.div 
+      initial={{opacity: 0, y:100}}
+        transition={{duration: 1.5}}
+        whileInView={{opacity: 1, y:0}}
+        viewport={{once: true}}
+      className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
         {projects.map((item, index) => (
           <div
             key={index}
@@ -121,7 +132,7 @@ export default function Project() {
             </div>
           </div>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 }
