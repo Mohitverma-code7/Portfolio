@@ -9,12 +9,14 @@ import Article from "../Components/Article";
 import Footer from "../Components/Footer";
 import Blog from "./Blog";
 import Contact from "../Components/Contact";
+import { ToastContainer } from "react-toastify";
 
 const Main = () => {
   const [count, setCount] = useState(0);
   return (
     <div>
       <ThemeProvider>
+        <ToastContainer/>
         <Navbar />
         <Header />
         <About />

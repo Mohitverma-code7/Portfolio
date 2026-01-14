@@ -6,6 +6,7 @@ import Resume from "../Pages/Resume.jsx";
 import { ThemeProvider } from "../context/ThemeContext.jsx";
 import Contact1 from "../Pages/Contact1.jsx";
 
+
 const Layout = () => {
   return (
     <div className="w-full">
@@ -14,7 +15,7 @@ const Layout = () => {
           <Route path="/" element={<Main />} />
           <Route path="/log" element={<Blog />} />
           <Route path="/resume" element={<Resume />} />
-          <Route path="/contact" element={<Contact1/>}/>
+          <Route path="/contact"   element={<Contact1/>  }/>
         </Routes>
       </ThemeProvider>
     </div>
