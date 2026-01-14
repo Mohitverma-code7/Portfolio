@@ -7,12 +7,14 @@ This portfolio is designed with clean UI, reusable components, and scalable arch
 ---
 
 ## 🌐 Live Demo
+
 🔗 **Portfolio:** https://your-portfolio-link.com  
-🔗 **GitHub Repository:** https://github.com/Mohitverma-code7/Portfolio  
+🔗 **GitHub Repository:** https://github.com/Mohitverma-code7/Portfolio
 
 ---
 
 ## 🧑‍💻 About Me
+
 Hi, I’m **Mohit Kumar**, a passionate **Frontend / Full Stack Web Developer** focused on building interactive, user-friendly, and performant web applications.
 
 I enjoy learning new technologies and applying them to real-world projects.
@@ -22,12 +24,14 @@ I enjoy learning new technologies and applying them to real-world projects.
 ## 🛠️ Tech Stack
 
 ### Frontend
+
 - React.js
 - JavaScript (ES6+)
 - HTML5
 - CSS3
 
 ### Tooling & Setup
+
 - Vite
 - Git & GitHub
 - ESLint
@@ -36,6 +40,7 @@ I enjoy learning new technologies and applying them to real-world projects.
 ---
 
 ## ✨ Features
+
 - Fully responsive design 📱💻
 - Clean and modern UI
 - Reusable React components
@@ -126,10 +131,10 @@ If you like this project, please consider giving it a ⭐ on GitHub — it reall
 ---
 
 ### ✅ This version is:
-- ✔ Properly formatted Markdown  
-- ✔ Clean on GitHub  
-- ✔ Recruiter-friendly  
-- ✔ Industry standard  
+- ✔ Properly formatted Markdown
+- ✔ Clean on GitHub
+- ✔ Recruiter-friendly
+- ✔ Industry standard
 
 If you want, I can also:
 - Make a **super minimal README**
@@ -137,3 +142,4 @@ If you want, I can also:
 - Add **badges** (React, Vite, GitHub stars)
 
 Just tell me 👍
+```

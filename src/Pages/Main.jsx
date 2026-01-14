@@ -16,7 +16,7 @@ const Main = () => {
   return (
     <div>
       <ThemeProvider>
-        <ToastContainer/>
+        <ToastContainer />
         <Navbar />
         <Header />
         <About />

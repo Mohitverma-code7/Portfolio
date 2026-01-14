@@ -32,16 +32,14 @@ const About = () => {
 
       {/* About Text */}
       <p className="max-w-4xl text-center text-lg leading-relaxed px-6">
-        Hi, I’m <span className="font-semibold text-blue-500">Mohit Kumar</span>,
-        a Frontend Web Developer who loves building clean, fast, and responsive
-        web applications. I work with HTML, CSS, JavaScript, React, and modern UI
-        tools to create smooth and engaging user experiences.
+        Hi, I’m <span className="font-semibold text-blue-500">Mohit Kumar</span>
+        , a Frontend Web Developer who loves building clean, fast, and
+        responsive web applications. I work with HTML, CSS, JavaScript, React,
+        and modern UI tools to create smooth and engaging user experiences.
       </p>
 
       {/* Section Title */}
-      <h2 className="text-3xl font-bold mt-16 mb-10">
-        What I Do
-      </h2>
+      <h2 className="text-3xl font-bold mt-16 mb-10">What I Do</h2>
 
       {/* Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full px-6">
@@ -59,9 +57,8 @@ const About = () => {
 
           <h3 className="text-2xl font-bold mb-2">Experience</h3>
           <p className="text-base opacity-90">
-            2+ years of experience <br />{" "}
-           Self-Employed <br /> Freelance
-Jan 2023 – Jan 2025 <br />
+            2+ years of experience <br /> Self-Employed <br /> Freelance Jan
+            2023 – Jan 2025 <br />
             <span className="font-semibold text-blue-500">
               Frontend Developer
             </span>

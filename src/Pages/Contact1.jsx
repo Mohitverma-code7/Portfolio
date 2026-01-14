@@ -38,7 +38,7 @@ const Contact = () => {
       id="contact"
       className={`py-24 px-6 ${theme === "dark" ? "bg-[#0A0A09] text-white" : "bg-white text-black"}`}
     >
-      <Navbar/>
+      <Navbar />
       {/* Heading */}
       <div className="text-center mb-14">
         <h1 className="text-4xl md:text-6xl font-extrabold">
@@ -109,7 +109,7 @@ const Contact = () => {
           </button>
         </div>
       </form>
-      <Footer/>
+      <Footer />
     </section>
   );
 };

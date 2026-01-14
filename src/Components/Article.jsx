@@ -9,16 +9,14 @@ const blogs = [
   {
     title: "Inside Git: How It Works and the Role of the .git Folder",
     image: git2,
-    desc:
-      "A deep dive into Git internals and how the .git folder manages version control behind the scenes.",
+    desc: "A deep dive into Git internals and how the .git folder manages version control behind the scenes.",
     tags: ["Git", "Version Control", ".git", "Branches", "Collaboration"],
     url: "https://mohitcodes-write.hashnode.dev/inside-git-how-it-works-and-the-role-of-the-git-folder",
   },
   {
     title: "Git for Beginners: Basics and Essential Commands Explained",
     image: git1,
-    desc:
-      "A beginner-friendly guide to Git commands like add, commit, push, and pull.",
+    desc: "A beginner-friendly guide to Git commands like add, commit, push, and pull.",
     tags: ["Git", "Commands", "add", "commit", "push", "pull"],
     url: "https://mohitcodes-write.hashnode.dev/git-for-beginners-basics-and-essential-commands",
   },
@@ -74,13 +72,9 @@ const Article = () => {
 
             {/* Content */}
             <div className="p-6 space-y-4">
-              <h3 className="text-2xl font-bold leading-snug">
-                {blog.title}
-              </h3>
+              <h3 className="text-2xl font-bold leading-snug">{blog.title}</h3>
 
-              <p className="text-sm leading-relaxed opacity-90">
-                {blog.desc}
-              </p>
+              <p className="text-sm leading-relaxed opacity-90">{blog.desc}</p>
 
               {/* Tags */}
               <div className="flex flex-wrap gap-2 pt-2">

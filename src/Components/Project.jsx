@@ -9,32 +9,28 @@ const projects = [
   {
     title: "College Website",
     image: project,
-    desc:
-      "A college website clone providing information about courses, faculty, admissions, and campus life.",
+    desc: "A college website clone providing information about courses, faculty, admissions, and campus life.",
     tech: ["JavaScript", "React", "Tailwind"],
     github: "https://github.com/Mohitverma-code7",
   },
   {
     title: "To-Do List",
     image: img1,
-    desc:
-      "A task management app with add, edit, delete, and mark complete features.",
+    desc: "A task management app with add, edit, delete, and mark complete features.",
     tech: ["React", "Tailwind", "JavaScript"],
     github: "https://github.com/Mohitverma-code7",
   },
   {
     title: "Estate Clone",
     image: img2,
-    desc:
-      "A real-estate clone where users can browse and filter property listings.",
+    desc: "A real-estate clone where users can browse and filter property listings.",
     tech: ["React", "Tailwind", "JavaScript"],
     github: "https://github.com/Mohitverma-code7",
   },
   {
     title: "Codeleap",
     image: img3,
-    desc:
-      "A coding platform to practice challenges, share solutions, and learn together.",
+    desc: "A coding platform to practice challenges, share solutions, and learn together.",
     tech: ["Next.js", "React", "MongoDB", "Node.js"],
     github: "https://github.com/Mohitverma-code7",
     live: "https://www.codeleap.in/",
@@ -102,9 +98,7 @@ export default function Project() {
             <div className="p-6 space-y-4">
               <h3 className="text-2xl font-bold">{item.title}</h3>
 
-              <p className="text-sm leading-relaxed opacity-90">
-                {item.desc}
-              </p>
+              <p className="text-sm leading-relaxed opacity-90">{item.desc}</p>
 
               {/* Tech stack */}
               <div className="flex flex-wrap gap-2 pt-2">

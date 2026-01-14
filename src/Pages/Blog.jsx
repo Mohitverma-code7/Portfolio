@@ -8,29 +8,25 @@ import { useTheme } from "../context/ThemeContext";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 
-
 const blogs = [
   {
     title: "Inside Git: How It Works and the Role of the .git Folder",
     image: git2,
-    desc:
-      "A deep dive into Git internals and how the .git folder manages version control behind the scenes.",
+    desc: "A deep dive into Git internals and how the .git folder manages version control behind the scenes.",
     tags: ["Git", "Version Control", ".git", "Branches", "Collaboration"],
     url: "https://mohitcodes-write.hashnode.dev/inside-git-how-it-works-and-the-role-of-the-git-folder",
   },
   {
     title: "Git for Beginners: Basics and Essential Commands Explained",
     image: git1,
-    desc:
-      "A beginner-friendly guide to Git commands like add, commit, push, and pull.",
+    desc: "A beginner-friendly guide to Git commands like add, commit, push, and pull.",
     tags: ["Git", "Commands", "add", "commit", "push", "pull"],
     url: "https://mohitcodes-write.hashnode.dev/git-for-beginners-basics-and-essential-commands",
   },
   {
     title: "The Pendrive Problem: Why Version Control Exists",
     image: git3,
-    desc:
-      "Learn why version control is crucial to avoid chaos when sharing code manually with pendrives.",
+    desc: "Learn why version control is crucial to avoid chaos when sharing code manually with pendrives.",
     tags: ["Git", "Collaboration", "GitHub", "Version Control"],
     url: "https://mohitcodes-write.hashnode.dev/why-version-control-exists-the-pendrive-problem",
   },
@@ -48,7 +44,7 @@ const Article = () => {
           : "bg-white text-gray-700"
       }`}
     >
-      <Navbar/>
+      <Navbar />
       <h1 className="text-4xl md:text-6xl font-extrabold text-center mb-14">
         My <span className="text-blue-500">Blogs</span>
       </h1>
@@ -115,7 +111,7 @@ const Article = () => {
           Show all blogs →
         </Link>
       </div>
-      <Footer/>
+      <Footer />
     </section>
   );
 };

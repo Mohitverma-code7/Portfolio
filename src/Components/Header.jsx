@@ -48,13 +48,10 @@ const Header = () => {
           <div className="flex-1 text-center md:text-left">
             {/* Title */}
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
-              Hi, I’m{" "}
-              <span className="text-blue-500">Mohit Kumar</span>
+              Hi, I’m <span className="text-blue-500">Mohit Kumar</span>
             </h1>
 
-            <p className="mt-3 text-lg text-gray-400">
-              Frontend Web Developer
-            </p>
+            <p className="mt-3 text-lg text-gray-400">Frontend Web Developer</p>
 
             {/* Description */}
             <p className="mt-8 max-w-3xl text-base leading-relaxed">
@@ -69,7 +66,7 @@ const Header = () => {
                   CSS
                 </span>
                 <span className="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-blue-500 flex items-center gap-1">
-                  <FontAwesomeIcon icon={faJs} /> 
+                  <FontAwesomeIcon icon={faJs} />
                   JavaScript
                 </span>
                 <span className="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-blue-500 flex items-center gap-1">

@@ -23,14 +23,12 @@ const Resume = () => {
           MY PROFESSIONAL RESUME
         </p>
         <div className="flex justify-center px-4 mt-10 mb-20">
-  <img
-  src={img}
-  alt="Resume"
-  className="w-full max-w-md mx-auto mt-10 mb-20 rounded-lg shadow-lg"
-/>
-
-</div>
-
+          <img
+            src={img}
+            alt="Resume"
+            className="w-full max-w-md mx-auto mt-10 mb-20 rounded-lg shadow-lg"
+          />
+        </div>
       </div>
       <Footer />
     </div>

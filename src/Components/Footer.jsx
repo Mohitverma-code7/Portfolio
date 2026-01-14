@@ -37,9 +37,7 @@ const Footer = () => {
         <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm opacity-80">
           <p>
             Designed & Developed by{" "}
-            <span className="font-semibold text-blue-500">
-              mohitcodes
-            </span>
+            <span className="font-semibold text-blue-500">mohitcodes</span>
           </p>
 
           <p>© 2026. All rights reserved.</p>
