@@ -1,16 +1,144 @@
-# React + Vite
+# 🚀 Personal Portfolio Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive **portfolio website** built using **React + Vite** to showcase my skills, projects, resume, and contact information as a **Web Developer**.
 
-Currently, two official plugins are available:
+This portfolio is designed with clean UI, reusable components, and scalable architecture.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🌐 Live Demo
+🔗 Portfolio: https://your-portfolio-link.com  
+🔗 GitHub Repository: https://github.com/Mohitverma-code7/Portfolio
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧑‍💻 About Me
+Hi, I’m **Mohit Kumar**, a passionate **Frontend / Full Stack Web Developer** focused on building interactive, user-friendly, and performant web applications.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+I enjoy learning new technologies and applying them to real-world projects.
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+- React.js
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+
+### Tooling & Setup
+- Vite
+- Git & GitHub
+- ESLint
+- VS Code
+
+---
+
+## ✨ Features
+- Fully responsive design 📱💻
+- Clean and modern UI
+- Reusable React components
+- Dark / Light theme support
+- Projects showcase section
+- Resume page
+- Contact page
+- Optimized performance with Vite
+
+---
+
+## 📂 Folder Structure
+
+portfolio/
+│
+├── public/
+│
+├── src/
+│ ├── assets/
+│ │ └── images/
+│ │
+│ ├── Components/
+│ │ ├── Navbar.jsx
+│ │ ├── Header.jsx
+│ │ ├── Footer.jsx
+│ │ ├── MusicPlayer.jsx
+│ │ ├── VisitorBox.jsx
+│ │ └── Project.jsx
+│ │
+│ ├── Pages/
+│ │ ├── Main.jsx
+│ │ ├── Blog.jsx
+│ │ ├── Contact.jsx
+│ │ └── Resume.jsx
+│ │
+│ ├── Layouts/
+│ │ └── Layout.jsx
+│ │
+│ ├── context/
+│ │ └── ThemeContext.jsx
+│ │
+│ ├── App.jsx
+│ ├── main.jsx
+│ └── index.css
+│
+├── index.html
+├── package.json
+├── vite.config.js
+└── README.md
+
+
+
+---
+
+## ⚙️ Installation & Setup
+
+Follow these steps to run the project locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/Mohitverma-code7/Portfolio
+
+# Navigate to the project directory
+cd portfolio
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
+
+
+
+
+# 🚧 Future Improvements
+
+Add blog CMS integration
+
+Improve animations & transitions
+
+Backend for contact form
+
+SEO optimization
+
+#🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+Feel free to fork the repository and submit a pull request.
+
+#📬 Contact
+
+Name: Mohit Kumar
+
+Email: mk0641137@gmail.com
+
+LinkedIn: [Linkedin](https://www.linkedin.com/in/mohit-kumar-300b63311/)
+
+GitHub: [GitHub](https://github.com/Mohitverma-code7)
+
+#⭐ Support
+
+If you like this project, please consider giving it a ⭐ on GitHub — it really helps!
+
+
+---
+
