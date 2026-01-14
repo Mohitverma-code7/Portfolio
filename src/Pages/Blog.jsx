@@ -5,8 +5,9 @@ import git3 from "../assets/GIT2.jpeg"; // new blog image
 import { ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
+
 
 const blogs = [
   {
