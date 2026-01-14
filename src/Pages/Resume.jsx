@@ -1,4 +1,4 @@
-import img from "../assets/RESUME.jpeg";
+import img from "../assets/RESUME.png";
 import Footer from "../Components/Footer";
 import Navbar from "../Components/Navbar";
 import { useTheme } from "../context/ThemeContext";
