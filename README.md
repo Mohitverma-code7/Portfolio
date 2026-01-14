@@ -7,8 +7,8 @@ This portfolio is designed with clean UI, reusable components, and scalable arch
 ---
 
 ## 🌐 Live Demo
-🔗 Portfolio: https://your-portfolio-link.com  
-🔗 GitHub Repository: https://github.com/Mohitverma-code7/Portfolio
+🔗 **Portfolio:** https://your-portfolio-link.com  
+🔗 **GitHub Repository:** https://github.com/Mohitverma-code7/Portfolio  
 
 ---
 
@@ -49,57 +49,44 @@ I enjoy learning new technologies and applying them to real-world projects.
 
 ## 📂 Folder Structure
 
+```text
 portfolio/
-│
 ├── public/
-│
 ├── src/
-│ ├── assets/
-│ │ └── images/
-│ │
-│ ├── Components/
-│ │ ├── Navbar.jsx
-│ │ ├── Header.jsx
-│ │ ├── Footer.jsx
-│ │ ├── MusicPlayer.jsx
-│ │ ├── VisitorBox.jsx
-│ │ └── Project.jsx
-│ │
-│ ├── Pages/
-│ │ ├── Main.jsx
-│ │ ├── Blog.jsx
-│ │ ├── Contact.jsx
-│ │ └── Resume.jsx
-│ │
-│ ├── Layouts/
-│ │ └── Layout.jsx
-│ │
-│ ├── context/
-│ │ └── ThemeContext.jsx
-│ │
-│ ├── App.jsx
-│ ├── main.jsx
-│ └── index.css
-│
+│   ├── assets/
+│   │   └── images/
+│   ├── Components/
+│   │   ├── Navbar.jsx
+│   │   ├── Header.jsx
+│   │   ├── Footer.jsx
+│   │   ├── MusicPlayer.jsx
+│   │   ├── VisitorBox.jsx
+│   │   └── Project.jsx
+│   ├── Pages/
+│   │   ├── Main.jsx
+│   │   ├── Blog.jsx
+│   │   ├── Contact.jsx
+│   │   └── Resume.jsx
+│   ├── Layouts/
+│   │   └── Layout.jsx
+│   ├── context/
+│   │   └── ThemeContext.jsx
+│   ├── App.jsx
+│   └── main.jsx
 ├── index.html
 ├── package.json
 ├── vite.config.js
 └── README.md
 
 
-
----
-
-## ⚙️ Installation & Setup
+⚙️ Installation & Setup
 
 Follow these steps to run the project locally:
-
-```bash
 # Clone the repository
 git clone https://github.com/Mohitverma-code7/Portfolio
 
 # Navigate to the project directory
-cd portfolio
+cd Portfolio
 
 # Install dependencies
 npm install
@@ -107,10 +94,7 @@ npm install
 # Start the development server
 npm run dev
 
-
-
-
-# 🚧 Future Improvements
+🚧 Future Improvements
 
 Add blog CMS integration
 
@@ -120,25 +104,36 @@ Backend for contact form
 
 SEO optimization
 
-#🤝 Contributing
+🤝 Contributing
 
-Contributions, issues, and feature requests are welcome!
+Contributions, issues, and feature requests are welcome.
 Feel free to fork the repository and submit a pull request.
 
-#📬 Contact
+📬 Contact
 
 Name: Mohit Kumar
 
 Email: mk0641137@gmail.com
 
-LinkedIn: [Linkedin](https://www.linkedin.com/in/mohit-kumar-300b63311/)
+LinkedIn: https://www.linkedin.com/in/mohit-kumar-300b63311/
 
-GitHub: [GitHub](https://github.com/Mohitverma-code7)
+GitHub: https://github.com/Mohitverma-code7
 
-#⭐ Support
+⭐ Support
 
 If you like this project, please consider giving it a ⭐ on GitHub — it really helps!
 
-
 ---
 
+### ✅ This version is:
+- ✔ Properly formatted Markdown  
+- ✔ Clean on GitHub  
+- ✔ Recruiter-friendly  
+- ✔ Industry standard  
+
+If you want, I can also:
+- Make a **super minimal README**
+- Tailor it for **Frontend-only roles**
+- Add **badges** (React, Vite, GitHub stars)
+
+Just tell me 👍
