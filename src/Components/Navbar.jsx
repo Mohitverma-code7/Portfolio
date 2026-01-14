@@ -77,7 +77,7 @@ const Navbar = () => {
           {[
             { label: "About", id: "About" },
             { label: "Projects", id: "projects" },
-            { label: "Blogs", id: "roll" },
+            { label: "Blogs", id: "blogs" },
             { label: "Contact", id: "contact" },
           ].map((item) => (
             <a

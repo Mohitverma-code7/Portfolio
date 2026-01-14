@@ -17,6 +17,7 @@
     "@heroicons/react": "^2.2.0",
     "@tabler/icons-react": "^3.36.1",
     "@tailwindcss/vite": "^4.1.18",
+    "@vercel/analytics": "^1.6.1",
     "clsx": "^2.1.1",
     "framer-motion": "^12.24.9",
     "lucide-react": "^0.562.0",
