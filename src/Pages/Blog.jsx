@@ -5,6 +5,8 @@ import git3 from "../assets/GIT2.jpeg"; // new blog image
 import { ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const blogs = [
   {
@@ -45,7 +47,7 @@ const Article = () => {
           : "bg-white text-gray-700"
       }`}
     >
-      {/* Heading */}
+      <Navbar/>
       <h1 className="text-4xl md:text-6xl font-extrabold text-center mb-14">
         My <span className="text-blue-500">Blogs</span>
       </h1>
@@ -112,6 +114,7 @@ const Article = () => {
           Show all blogs →
         </Link>
       </div>
+      <Footer/>
     </section>
   );
 };
