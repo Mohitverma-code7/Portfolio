@@ -103,14 +103,7 @@ const Article = () => {
       </div>
 
       {/* Show all blogs */}
-      <div className="flex justify-center mt-14">
-        <Link
-          to="/log"
-          className="px-6 py-3 rounded-full border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition font-medium"
-        >
-          Show all blogs →
-        </Link>
-      </div>
+      
       <Footer />
     </section>
   );

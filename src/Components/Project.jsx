@@ -7,25 +7,25 @@ import { useTheme } from "../context/ThemeContext";
 
 const projects = [
   {
-    title: "College Website",
+    title: "Web-Clone",
     image: project,
-    desc: "A college website clone providing information about courses, faculty, admissions, and campus life.",
+    desc: "A Web clone  ",
     tech: ["JavaScript", "React", "Tailwind"],
-    github: "https://github.com/Mohitverma-code7",
+    github: "https://github.com/Mohitverma-code7/Web-Clone",
   },
   {
     title: "To-Do List",
     image: img1,
     desc: "A task management app with add, edit, delete, and mark complete features.",
     tech: ["React", "Tailwind", "JavaScript"],
-    github: "https://github.com/Mohitverma-code7",
+    github: "https://github.com/Mohitverma-code7/js-todo",
   },
   {
     title: "Estate Clone",
     image: img2,
     desc: "A real-estate clone where users can browse and filter property listings.",
     tech: ["React", "Tailwind", "JavaScript"],
-    github: "https://github.com/Mohitverma-code7",
+    github: "https://github.com/Mohitverma-code7/Estate-Clone",
   },
   {
     title: "Codeleap",
