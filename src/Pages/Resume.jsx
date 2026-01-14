@@ -16,7 +16,8 @@ const Resume = () => {
       <Navbar />
       <div className="  ">
         <p className=" text-[40px] md:text-6xl font-bold pt-30  text-center hover:underline  underline-offset-16 decoration-6 decoration-blue-700 cursor-pointer  ">
-          RESUME
+          My
+          <span className=" text-blue-700 ">Resume</span>
         </p>
         <p className="text-center pt-8 text-sm md:text-base  max-w-2xl mx-auto ">
           MY PROFESSIONAL RESUME

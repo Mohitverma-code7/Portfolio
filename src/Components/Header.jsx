@@ -17,6 +17,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCss3,
   faHtml5,
+  faJs,
   faReact,
 } from "@fortawesome/free-brands-svg-icons";
 
@@ -68,7 +69,7 @@ const Header = () => {
                   CSS
                 </span>
                 <span className="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-blue-500 flex items-center gap-1">
-                  <img src={jsImg} alt="JS" className="w-3 h-3 bg-blue-500" />
+                  <FontAwesomeIcon icon={faJs} /> 
                   JavaScript
                 </span>
                 <span className="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-blue-500 flex items-center gap-1">
