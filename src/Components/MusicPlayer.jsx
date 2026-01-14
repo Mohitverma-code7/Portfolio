@@ -1,6 +1,7 @@
 import { useRef, useState, useEffect } from "react";
 import { Play, Pause } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
+import song from "../assets/music.mp3";
 
 export default function MusicPlayer() {
   const audioRef = useRef(null);
@@ -47,8 +48,8 @@ export default function MusicPlayer() {
           className="w-12 h-12 rounded-md"
         />
         <div className="flex-1">
-          <p className="text-sm font-medium">Andaaz e Karam</p>
-          <p className="text-xs text-gray-500">Madhur Sharma, Moin, ER</p>
+          <p className="text-sm font-medium">See You Again </p>
+          <p className="text-xs text-gray-500">Charlie Puth, Wiz Khalifa, DJ Frank E, and Andrew Cedar </p>
         </div>
         <button
           onClick={togglePlay}
@@ -74,7 +75,7 @@ export default function MusicPlayer() {
       </div>
 
       {/* Audio */}
-      <audio ref={audioRef} src="/music.mp3" />
+      <audio ref={audioRef} src={song} />
     </div>
   );
 }
