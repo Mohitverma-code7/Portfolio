@@ -27,7 +27,7 @@ const Article = () => {
 
   return (
     <section
-      id="blogs"
+      id="blog"
       className={`py-20 px-6 ${
         theme === "dark"
           ? "bg-[#0A0A09] text-[#9BABAB]"
@@ -35,22 +35,24 @@ const Article = () => {
       }`}
     >
       {/* Heading */}
-      <motion.h1 
-      initial={{opacity: 0, y:100}}
-        transition={{duration: 1.5}}
-        whileInView={{opacity: 1, y:0}}
-        viewport={{once: true}}
-      className="text-4xl md:text-6xl font-extrabold text-center mb-14">
+      <motion.h1
+        initial={{ opacity: 0, y: 100 }}
+        transition={{ duration: 1.5 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-4xl md:text-6xl font-extrabold text-center mb-14"
+      >
         My <span className="text-blue-500">Blogs</span>
       </motion.h1>
 
       {/* Grid */}
-      <motion.div 
-      initial={{opacity: 0, y:100}}
-        transition={{duration: 1.5}}
-        whileInView={{opacity: 1, y:0}}
-        viewport={{once: true}}
-      className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        transition={{ duration: 1.5 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto"
+      >
         {blogs.map((blog, index) => (
           <div
             key={index}

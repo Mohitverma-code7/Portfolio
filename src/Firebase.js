@@ -1,4 +1,3 @@
-
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getDatabase } from "firebase/database";
@@ -11,10 +10,9 @@ const firebaseConfig = {
   storageBucket: "mohitcodes-portfolio.firebasestorage.app",
   messagingSenderId: "1011384216950",
   appId: "1:1011384216950:web:69c6e8c6982d911ec4de57",
-  measurementId: "G-K5PG2PYSRT"
+  measurementId: "G-K5PG2PYSRT",
 };
-
 
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-export const db = getDatabase(app)
+export const db = getDatabase(app);

@@ -28,8 +28,20 @@ const Resume = () => {
             alt="Resume"
             className="w-full max-w-md mx-auto mt-10 mb-20 rounded-lg shadow-lg"
           />
+          
         </div>
       </div>
+      <div className="flex justify-center mt-6">
+            {/* DOWNLOAD BUTTON */}
+            <a
+              href="https://drive.google.com/file/d/1HTnJQPIA6hUV_96wQkjNvw5szuxGTh0v/view?usp=drivesdk"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-6 py-3 bg-blue-700 text-white rounded-lg font-medium hover:bg-blue-800 transition"
+            >
+              Download Resume
+            </a>
+          </div>
       <Footer />
     </div>
   );

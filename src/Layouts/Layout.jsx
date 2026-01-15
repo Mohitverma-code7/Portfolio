@@ -5,11 +5,13 @@ import Main from "../Pages/Main.jsx";
 import Resume from "../Pages/Resume.jsx";
 import { ThemeProvider } from "../context/ThemeContext.jsx";
 import Contact1 from "../Pages/Contact1.jsx";
+import ScrollToTop from "../utils/ScrollToTop.jsx";
 
 const Layout = () => {
   return (
     <div className="w-full">
       <ThemeProvider>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/log" element={<Blog />} />

@@ -15,29 +15,13 @@ const projects = [
     github: "https://github.com/Mohitverma-code7/Web-Clone",
   },
   {
-    title: "To-Do List",
-    image: img1,
-    desc: "A task management app with add, edit, delete, and mark complete features.",
-    tech: ["React", "Tailwind", "JavaScript"],
-    github: "https://github.com/Mohitverma-code7/js-todo",
-  },
-  {
     title: "Estate Clone",
     image: img2,
     desc: "A real-estate clone where users can browse and filter property listings.",
     tech: ["React", "Tailwind", "JavaScript"],
     github: "https://github.com/Mohitverma-code7/Estate-Clone",
   },
-  {
-    title: "Codeleap",
-    image: img3,
-    desc: "A coding platform to practice challenges, share solutions, and learn together.",
-    tech: ["Next.js", "React", "MongoDB", "Node.js"],
-    github: "https://github.com/Mohitverma-code7",
-    live: "https://www.codeleap.in/",
-  },
 ];
-
 export default function Project() {
   const { theme } = useTheme();
 
@@ -51,22 +35,24 @@ export default function Project() {
       }`}
     >
       {/* Heading */}
-      <motion.h1 
-      initial={{opacity: 0, y:100}}
-        transition={{duration: 1.5}}
-        whileInView={{opacity: 1, y:0}}
-        viewport={{once: true}}
-      className="text-4xl md:text-6xl font-extrabold text-center mb-14">
+      <motion.h1
+        initial={{ opacity: 0, y: 100 }}
+        transition={{ duration: 1.5 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="text-4xl md:text-6xl font-extrabold text-center mb-14"
+      >
         My <span className="text-blue-500">Projects</span>
       </motion.h1>
 
       {/* Grid */}
-      <motion.div 
-      initial={{opacity: 0, y:100}}
-        transition={{duration: 1.5}}
-        whileInView={{opacity: 1, y:0}}
-        viewport={{once: true}}
-      className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto">
+      <motion.div
+        initial={{ opacity: 0, y: 100 }}
+        transition={{ duration: 1.5 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto"
+      >
         {projects.map((item, index) => (
           <div
             key={index}
@@ -97,9 +83,7 @@ export default function Project() {
             <div className="p-6 space-y-4">
               <h3 className="text-2xl font-bold">{item.title}</h3>
 
-              <p className="text-sm leading-relaxed opacity-90">
-                {item.desc}
-              </p>
+              <p className="text-sm leading-relaxed opacity-90">{item.desc}</p>
 
               {/* Tech stack */}
               <div className="flex flex-wrap gap-2 pt-2">

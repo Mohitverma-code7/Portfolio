@@ -7,13 +7,12 @@ import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import VisitorBox from "./Components/VisitorBox";
 
-
 function App() {
   const [count, setCount] = useState(0);
-  
+
   const location = useLocation();
 
-   useEffect(() => {
+  useEffect(() => {
     if (window.gtag) {
       window.gtag("config", "G-XXXXXXX", {
         page_path: location.pathname,
@@ -24,7 +23,7 @@ function App() {
   return (
     <>
       <ToastContainer />
-      
+
       <Layout />
     </>
   );

@@ -1,90 +1,146 @@
 import { useRef, useState, useEffect } from "react";
-import { Play, Pause } from "lucide-react";
+import { Play, Pause, SkipForward, SkipBack } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
-import song from "../assets/music.mp3";
+import { songs } from "../Songs";
 
 export default function MusicPlayer() {
   const audioRef = useRef(null);
+  const progressRef = useRef(null);
+  const { theme } = useTheme();
+
+  const [index, setIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
 
+  const song = songs[index];
+
+  // Toggle Play / Pause
   const togglePlay = () => {
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
-      audioRef.current.play();
-    }
-    setIsPlaying(!isPlaying);
+    setIsPlaying((prev) => !prev);
   };
 
+  // Next Song
+  const nextSong = () => {
+    setIndex((i) => (i + 1) % songs.length);
+    setCurrentTime(0);
+  };
+
+  // Previous Song
+  const prevSong = () => {
+    setIndex((i) => (i === 0 ? songs.length - 1 : i - 1));
+    setCurrentTime(0);
+  };
+
+  // Update audio src when song changes
   useEffect(() => {
     const audio = audioRef.current;
+    audio.pause();
+    audio.src = song.src;
+    audio.currentTime = 0;
+    if (isPlaying) audio.play();
+  }, [index, song.src, isPlaying]);
+
+  // Play/pause control effect
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (isPlaying) audio.play();
+    else audio.pause();
+  }, [isPlaying]);
+
+  // Update time and duration, handle song end
+  useEffect(() => {
+    const audio = audioRef.current;
+    if (!audio) return;
 
     const updateTime = () => setCurrentTime(audio.currentTime);
-    const setAudioDuration = () => setDuration(audio.duration);
+    const setMeta = () => setDuration(audio.duration || 0);
+    const onEnd = () => nextSong();
 
     audio.addEventListener("timeupdate", updateTime);
-    audio.addEventListener("loadedmetadata", setAudioDuration);
+    audio.addEventListener("loadedmetadata", setMeta);
+    audio.addEventListener("ended", onEnd);
 
     return () => {
       audio.removeEventListener("timeupdate", updateTime);
-      audio.removeEventListener("loadedmetadata", setAudioDuration);
+      audio.removeEventListener("loadedmetadata", setMeta);
+      audio.removeEventListener("ended", onEnd);
     };
-  }, []);
+  }, [index]);
+
+  // Handle click on progress bar
+  const handleProgressClick = (e) => {
+    const bar = progressRef.current;
+    const rect = bar.getBoundingClientRect();
+    const clickX = e.clientX - rect.left;
+    const newTime = (clickX / rect.width) * duration;
+    audioRef.current.currentTime = newTime;
+    setCurrentTime(newTime);
+  };
 
   const progress = (currentTime / duration) * 100 || 0;
-  const { theme } = useTheme();
 
   return (
     <div
-      className={`max-w-xl w-full border rounded-xl p-4  shadow-sm ${theme === "dark" ? "bg-black" : "bg-white"} `}
+      className={`max-w-xl w-fit md:w-full border rounded-xl p-4 shadow-sm ${
+        theme === "dark" ? "bg-[#0A0A09] text-white" : "bg-white"
+      }`}
     >
-      {/* Song info */}
-      <div className="flex items-center gap-3">
-        <img
-          src="https://picsum.photos/60"
-          alt="cover"
-          className="w-12 h-12 rounded-md"
-        />
+      {/* Song Info */}
+      <div className="flex items-center gap-4 md:gap-3">
+        <img src={song.cover} className="w-12 h-12 rounded-md" />
         <div className="flex-1">
-          <p className="text-sm font-medium">See You Again </p>
-          <p className="text-xs text-gray-500">Charlie Puth, Wiz Khalifa, DJ Frank E, and Andrew Cedar </p>
+          <p className="text-sm font-medium">{song.title}</p>
+          <p className="text-xs text-gray-500">{song.artist}</p>
         </div>
-        <button
-          onClick={togglePlay}
-          className={`p-2 rounded-full border ${theme === "dark" ? "bg-black hover:bg-blue-700 " : "bg-white hover:bg-gray-200 "} cursor-pointer `}
-        >
-          {isPlaying ? <Pause size={18} /> : <Play size={18} />}
-        </button>
+
+        <div className="flex gap-2">
+          <button onClick={prevSong}>
+            <SkipBack size={18} />
+          </button>
+          <button onClick={togglePlay}>
+            {isPlaying ? <Pause size={18} /> : <Play size={18} />}
+          </button>
+          <button onClick={nextSong}>
+            <SkipForward size={18} />
+          </button>
+        </div>
       </div>
 
-      {/* Progress bar */}
+      {/* Progress */}
       <div className="mt-3">
-        <div className={`h-1 w-full ${theme === "dark" ? "bg-black " : "bg-white  "} `}>
+        <div
+          ref={progressRef}
+          onClick={handleProgressClick}
+          className={`h-1 ${
+            theme === "dark" ? "bg-gray-700 " : "bg-gray-300"
+          } cursor-pointer relative `}
+        >
           <div
-            className={`h-1 ${theme === "dark" ? "bg-white  " : "bg-black  "} rounded`}
+            className={`h-1 transition-all duration-300 ${
+              theme === "dark" ? "bg-white" : "bg-black"
+            }`}
             style={{ width: `${progress}%` }}
-          />
+          ></div>
         </div>
-
         <div className="flex justify-between text-xs text-gray-500 mt-1">
           <span>{formatTime(currentTime)}</span>
           <span>{formatTime(duration)}</span>
         </div>
       </div>
 
-      {/* Audio */}
-      <audio ref={audioRef} src={song} />
+      <audio ref={audioRef} />
     </div>
   );
 }
 
+// Helper function to format time
 function formatTime(time) {
   if (!time) return "0:00";
-  const minutes = Math.floor(time / 60);
-  const seconds = Math.floor(time % 60)
+  const m = Math.floor(time / 60);
+  const s = Math.floor(time % 60)
     .toString()
     .padStart(2, "0");
-  return `${minutes}:${seconds}`;
+  return `${m}:${s}`;
 }

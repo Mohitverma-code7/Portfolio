@@ -28,9 +28,7 @@ const Header = () => {
     <header
       id="Header"
       className={`min-h-screen pt-24 ${
-        theme === "dark"
-          ? "bg-[#0A0A09] text-white"
-          : "bg-white text-black"
+        theme === "dark" ? "bg-[#0A0A09] text-white" : "bg-white text-black"
       }`}
     >
       <Navbar />
@@ -60,9 +58,7 @@ const Header = () => {
               Hi, I’m <span className="text-blue-500">Mohit Kumar</span>
             </h1>
 
-            <p className="mt-3 text-lg text-gray-400">
-              Frontend Web Developer
-            </p>
+            <p className="mt-3 text-lg text-gray-400">Frontend Web Developer</p>
 
             {/* Description */}
             <p className="mt-8 max-w-3xl text-base leading-relaxed">
@@ -101,7 +97,7 @@ const Header = () => {
                   w-fit sm:w-auto
                 "
               >
-                <NotebookPen size={16} className="sm:size-[18px]" />
+                <NotebookPen size={16} className="sm:size-[18px\]" />
                 Resume / CV
               </Link>
 
@@ -119,7 +115,7 @@ const Header = () => {
                   w-fit sm:w-auto
                 "
               >
-                <Navigation size={16} className="sm:size-[18px]" />
+                <Navigation size={16} className="sm:size-[18px\]" />
                 Get In Touch
               </Link>
             </div>
