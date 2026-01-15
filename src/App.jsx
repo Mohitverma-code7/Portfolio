@@ -5,6 +5,7 @@ import Main from "./Pages/Main";
 import { ToastContainer } from "react-toastify";
 import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import VisitorBox from "./Components/VisitorBox";
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
   return (
     <>
       <ToastContainer />
+      
       <Layout />
     </>
   );

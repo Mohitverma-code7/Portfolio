@@ -53,7 +53,7 @@ export default function MusicPlayer() {
         </div>
         <button
           onClick={togglePlay}
-          className="p-2 rounded-full border hover:bg-gray-100"
+          className={`p-2 rounded-full border ${theme === "dark" ? "bg-black hover:bg-blue-700 " : "bg-white hover:bg-gray-200 "} cursor-pointer `}
         >
           {isPlaying ? <Pause size={18} /> : <Play size={18} />}
         </button>
@@ -61,9 +61,9 @@ export default function MusicPlayer() {
 
       {/* Progress bar */}
       <div className="mt-3">
-        <div className="h-1 w-full bg-gray-200 rounded">
+        <div className={`h-1 w-full ${theme === "dark" ? "bg-black " : "bg-white  "} `}>
           <div
-            className="h-1 bg-black rounded"
+            className={`h-1 ${theme === "dark" ? "bg-white  " : "bg-black  "} rounded`}
             style={{ width: `${progress}%` }}
           />
         </div>

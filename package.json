@@ -19,6 +19,7 @@
     "@tailwindcss/vite": "^4.1.18",
     "@vercel/analytics": "^1.6.1",
     "clsx": "^2.1.1",
+    "firebase": "^12.8.0",
     "framer-motion": "^12.24.9",
     "lucide-react": "^0.562.0",
     "react": "^19.2.0",
