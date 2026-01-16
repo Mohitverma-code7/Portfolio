@@ -10,6 +10,7 @@ import Footer from "../Components/Footer";
 import Blog from "./Blog";
 import Contact from "../Components/Contact";
 import { ToastContainer } from "react-toastify";
+import Icons from "../Components/Icons";
 
 const Main = () => {
   const [count, setCount] = useState(0);
@@ -20,6 +21,7 @@ const Main = () => {
         <Navbar />
         <Header />
         <About />
+        <Icons />
         <Project />
         <Article />
         <Contact />
