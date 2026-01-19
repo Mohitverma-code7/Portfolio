@@ -2,6 +2,7 @@ import React from "react";
 import git1 from "../assets/.git.png";
 import git2 from "../assets/GIT1.png";
 import git3 from "../assets/GIT2.jpeg"; // new blog image
+import img from "../assets/IMG4.png"
 import { ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
@@ -30,6 +31,13 @@ const blogs = [
     desc: "Learn why version control is crucial to avoid chaos when sharing code manually with pendrives.",
     tags: ["Git", "Collaboration", "GitHub", "Version Control"],
     url: "https://mohitcodes-write.hashnode.dev/why-version-control-exists-the-pendrive-problem",
+  },
+  {
+    title: "How DNS Resolution Works",
+    image: img,
+    desc: "Learn how dns resolution is crucial to avoid chaos when sharing code manually with pendrives.",
+    tags: ["computer-networking", "chaiaurcode", "dns", "chaicode"],
+    url: "https://mohitcodes-dns.hashnode.dev/how-dns-resolution-works?t=1768844354598",
   },
 ];
 

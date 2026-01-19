@@ -42,26 +42,19 @@ const Header = () => {
         className="max-w-6xl mx-auto px-6 pt-20 md:pt-32 pb-20"
       >
         <div className="flex flex-col md:flex-row items-center md:items-start gap-12">
-          {/* Avatar */}
-          <div className="relative shrink-0">
-            <div className="absolute inset-0 rounded-full blur-xl bg-blue-500/30"></div>
-            <img
-              src={Img}
-              alt="Mohit Kumar"
-              className="relative w-28 h-28 md:w-32 md:h-32 rounded-full border-4 border-blue-500 object-cover"
-            />
-          </div>
-
-          {/* Content */}
-          <div className="flex-1 text-center md:text-left">
+          
+          {/* LEFT SIDE — TEXT CONTENT */}
+          <div className="order-2 md:order-1 flex-1 text-center md:text-left">
             <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-tight">
               Hi, I’m <span className="text-blue-500">Mohit Kumar</span>
             </h1>
 
-            <p className="mt-3 text-lg text-gray-400">Frontend Web Developer</p>
+            <p className="mt-3 text-lg text-gray-400">
+              Frontend Web Developer
+            </p>
 
             {/* Description */}
-            <p className="mt-8 max-w-3xl text-base leading-relaxed">
+            <p className="mt-2 max-w-3xl text-base leading-relaxed">
               I build modern, interactive, and responsive user interfaces using{" "}
               <span className="inline-flex flex-wrap gap-2 ml-2">
                 <span className="px-3 py-1 text-xs rounded-full bg-blue-500/10 text-blue-500 flex items-center gap-1">
@@ -77,12 +70,12 @@ const Header = () => {
                   <FontAwesomeIcon icon={faReact} /> React
                 </span>
               </span>
-              , focusing on clean UI, performance, and accessibility.
+              , focusing on clean UI,
+              <br /> performance, and accessibility.
             </p>
 
             {/* CTA Buttons */}
-            <div className="mt-10 flex  sm:flex-row gap-4 justify-center md:justify-start">
-              {/* Resume Button */}
+            <div className="mt-10 flex sm:flex-row gap-4 justify-center md:justify-start">
               <Link
                 to="/resume"
                 className="
@@ -97,11 +90,10 @@ const Header = () => {
                   w-fit sm:w-auto
                 "
               >
-                <NotebookPen size={16} className="sm:size-[18px\]" />
+                <NotebookPen size={16} />
                 Resume / CV
               </Link>
 
-              {/* Contact Button */}
               <Link
                 to="/contact"
                 className="
@@ -115,7 +107,7 @@ const Header = () => {
                   w-fit sm:w-auto
                 "
               >
-                <Navigation size={16} className="sm:size-[18px\]" />
+                <Navigation size={16} />
                 Get In Touch
               </Link>
             </div>
@@ -156,6 +148,16 @@ const Header = () => {
                 <Mail />
               </a>
             </div>
+          </div>
+
+          {/* RIGHT SIDE — IMAGE */}
+          <div className="order-1 md:order-2 relative shrink-0">
+            <div className="absolute inset-0 rounded-full blur-xl bg-blue-500/30"></div>
+            <img
+              src={Img}
+              alt="Mohit Kumar"
+              className="relative w-40 h-40 md:w-80 md:h-80 rounded-2xl border-4 border-blue-500 object-cover"
+            />
           </div>
         </div>
       </motion.div>
