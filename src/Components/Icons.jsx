@@ -30,8 +30,8 @@ const Icons = () => {
     <div
       className={`px-6 py-20 ${
         theme === "dark"
-          ? "bg-[#0A0A09] text-[#9BABAB]"
-          : "bg-white text-gray-700"
+          ? "bg-[#0D0D0F] text-[#9BABAB]"
+          : "bg-[#F4F9F9] text-gray-700"
       }`}
     >
       <motion.div 
@@ -45,7 +45,7 @@ const Icons = () => {
         </h3>
 
         {/* MOBILE / TABLET */}
-        <div className="grid grid-cols-3 sm:grid-cols-4 gap-10 place-items-center lg:hidden">
+        <div className="grid grid-cols-3 sm:grid-cols-4 gap-10 place-items-center lg:hidden bg-white ">
           <div className={iconBox}><FaReact className={`${iconStyle} text-cyan-400`} /></div>
           <div className={iconBox}><FaJs className={`${iconStyle} text-yellow-400`} /></div>
           <div className={iconBox}><SiTypescript className={`${iconStyle} text-blue-400`} /></div>

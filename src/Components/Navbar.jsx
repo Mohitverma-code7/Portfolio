@@ -24,7 +24,7 @@ const Navbar = () => {
         ${
           theme === "dark"
             ? "bg-white/5 border-white/10 text-white"
-            : "bg-white/40 border-gray-200 text-gray-800"
+            : "bg-white border-gray-400 text-gray-800"
         }`}
       >
         {/* Logo */}

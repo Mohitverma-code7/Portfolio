@@ -8,7 +8,7 @@ const Footer = () => {
 
   return (
     <footer
-      className={`pt-20  ${theme === "dark" ? "bg-[#0A0A09] text-white" : "bg-white text-black"}`}
+      className={`pt-20  ${theme === "dark" ? "bg-[#0D0D0F] text-white" : "bg-[#F4F9F9] text-black"}`}
     >
       {/* Quote Section */}
       <div className="max-w-4xl mx-auto px-6">

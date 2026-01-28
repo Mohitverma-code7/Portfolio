@@ -30,8 +30,8 @@ export default function Project() {
       id="projects"
       className={`py-20 px-6 ${
         theme === "dark"
-          ? "bg-[#0A0A09] text-[#9BABAB]"
-          : "bg-white text-gray-700"
+          ? "bg-[#0D0D0F] text-[#9BABAB]"
+          : "bg-[#F4F9F9] text-gray-700"
       }`}
     >
       {/* Heading */}

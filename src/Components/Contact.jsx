@@ -35,7 +35,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className={`py-24 px-6 ${theme === "dark" ? "bg-[#0A0A09] text-white" : "bg-white text-black"}`}
+      className={`py-24 px-6 ${theme === "dark" ? "bg-[#0D0D0F] text-white" : "bg-[#F4F9F9] text-black"}`}
     >
       {/* Heading */}
       <div className="text-center mb-14">
