@@ -21,6 +21,7 @@
     "clsx": "^2.1.1",
     "firebase": "^12.8.0",
     "framer-motion": "^12.24.9",
+    "lenis": "^1.3.17",
     "lucide-react": "^0.562.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",

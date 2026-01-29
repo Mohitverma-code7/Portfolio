@@ -11,12 +11,14 @@ import Blog from "./Blog";
 import Contact from "../Components/Contact";
 import { ToastContainer } from "react-toastify";
 import Icons from "../Components/Icons";
+import SmoothScroll from "../Components/SmoothScroll";
 
 const Main = () => {
   const [count, setCount] = useState(0);
   return (
     <div>
       <ThemeProvider>
+        <SmoothScroll>
         <ToastContainer />
         <Navbar />
         <Header />
@@ -26,6 +28,7 @@ const Main = () => {
         <Article />
         <Contact />
         <Footer />
+        </SmoothScroll>
       </ThemeProvider>
     </div>
   );
