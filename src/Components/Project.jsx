@@ -12,14 +12,14 @@ const projects = [
     image: project,
     desc: "A Web clone",
     tech: ["JavaScript", "React", "Tailwind"],
-    github: "https://github.com/Mohitverma-code7/Web-Clone",
+    github: "https://web-clone-sable.vercel.app/",
   },
   {
     title: "Estate Clone",
     image: img2,
     desc: "A real-estate clone where users can browse and filter property listings.",
     tech: ["React", "Tailwind", "JavaScript"],
-    github: "https://github.com/Mohitverma-code7/Estate-Clone",
+    github: "https://estate-clone-eight.vercel.app/",
   },
 ];
 export default function Project() {
