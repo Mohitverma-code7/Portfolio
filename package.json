@@ -23,6 +23,7 @@
     "framer-motion": "^12.24.9",
     "lenis": "^1.3.17",
     "lucide-react": "^0.562.0",
+    "motion": "^12.34.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "react-icons": "^5.5.0",
@@ -30,7 +31,7 @@
     "react-router-hash-link": "^2.4.3",
     "react-toastify": "^11.0.5",
     "react-tsparticles": "^2.12.2",
-    "tailwind-merge": "^3.4.0",
+    "tailwind-merge": "^3.4.1",
     "tsparticles": "^3.9.1"
   },
   "devDependencies": {
