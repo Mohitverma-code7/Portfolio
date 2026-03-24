@@ -1,18 +1,17 @@
 import { Globe, Github } from "lucide-react";
 import project from "../assets/Project.png";
-import img1 from "../assets/IMG1.png";
 import img2 from "../assets/IMG2.png";
-import img3 from "../assets/IMG3.png";
 import { useTheme } from "../context/ThemeContext";
 import { motion } from "framer-motion";
+import img3 from "../assets/mintly.png"
 
 const projects = [
   {
-    title: "Web-Clone",
-    image: project,
-    desc: "A Web clone",
+    title: "mintlify-Clone",
+    image: img3,
+    desc: "The Intelligent Knowledge Platform",
     tech: ["JavaScript", "React", "Tailwind"],
-    github: "https://web-clone-sable.vercel.app/",
+    github: "https://mintlify-lyart.vercel.app/",
   },
   {
     title: "Estate Clone",
@@ -21,6 +20,7 @@ const projects = [
     tech: ["React", "Tailwind", "JavaScript"],
     github: "https://estate-clone-eight.vercel.app/",
   },
+
 ];
 export default function Project() {
   const { theme } = useTheme();
