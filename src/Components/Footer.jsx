@@ -1,46 +1,47 @@
-import React from "react";
+import { Quote } from "lucide-react";
 import { useTheme } from "../context/ThemeContext";
 import VisitorBox from "./VisitorBox";
-import { Quote } from "lucide-react";
 
 const Footer = () => {
   const { theme } = useTheme();
 
   return (
-    <footer
-      className={`pt-20  ${theme === "dark" ? "bg-[#0D0D0F] text-white" : "bg-[#F4F9F9] text-black"}`}
-    >
-      {/* Quote Section */}
-      <div className="max-w-4xl mx-auto px-6">
+    <footer className={`pt-20 bg-transparent ${theme === "dark" ? "text-white" : "text-black"}`}>
+      <div className="mx-auto max-w-4xl px-6">
         <div
-          className={`relative rounded-3xl p-10 border backdrop-blur-lg shadow-2xl  ${theme === "dark" ? "bg-[#0A0A09] text-white" : "bg-white text-black"}`}
+          className={`relative overflow-hidden rounded-[2rem] border p-10 shadow-2xl backdrop-blur-xl ${
+            theme === "dark"
+              ? "border-white/10 bg-white/5"
+              : "border-white/60 bg-white/80"
+          }`}
         >
-          <Quote className="absolute top-6 left-6 w-14 h-14 text-blue-500/30" />
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(59,130,246,0.16),transparent_32%),radial-gradient(circle_at_bottom_right,rgba(14,165,233,0.12),transparent_30%)]" />
+          <Quote className="absolute left-6 top-6 h-14 w-14 text-blue-500/30" />
 
-          <p className="text-lg md:text-xl italic leading-relaxed pl-10">
-            If I give up now, I’ll regret it.
-          </p>
+          <div className="relative">
+            <p className="pl-10 text-lg italic leading-relaxed md:text-2xl">
+              If I give up now, I&apos;ll regret it.
+            </p>
 
-          <p className="mt-6 text-right text-sm font-medium opacity-80">
-            — Monkey D. Luffy
-          </p>
+            <p className="mt-6 text-right text-sm font-medium opacity-80">
+              - Monkey D. Luffy
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Visitor Counter */}
       <div className="mt-16">
         <VisitorBox />
       </div>
 
-      {/* Bottom Footer */}
       <div className="mt-16 border-t border-white/10">
-        <div className="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between gap-4 text-sm opacity-80">
+        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 px-6 py-8 text-sm opacity-80 md:flex-row">
           <p>
             Designed & Developed by{" "}
             <span className="font-semibold text-blue-500">mohitcodes</span>
           </p>
 
-          <p>© 2026. All rights reserved.</p>
+          <p>&copy; 2026. All rights reserved.</p>
         </div>
       </div>
     </footer>

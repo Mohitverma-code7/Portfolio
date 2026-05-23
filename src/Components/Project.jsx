@@ -1,122 +1,210 @@
-import { Globe, Github } from "lucide-react";
-import project from "../assets/Project.png";
-import img2 from "../assets/IMG2.png";
-import { useTheme } from "../context/ThemeContext";
+import { ArrowUpRight, Github, Globe, Layers3, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
-import img3 from "../assets/mintly.png"
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import img2 from "../assets/IMG2.png";
+import img3 from "../assets/mintly.png";
+import { useTheme } from "../context/ThemeContext";
 
 const projects = [
   {
-    title: "mintlify-Clone",
+    title: "Mintlify Clone",
     image: img3,
-    desc: "The Intelligent Knowledge Platform",
+    desc: "A polished documentation-style experience inspired by Mintlify, built with a strong focus on layout, hierarchy, and smooth interaction.",
     tech: ["JavaScript", "React", "Tailwind"],
-    github: "https://mintlify-lyart.vercel.app/",
+    live: "https://mintlify-lyart.vercel.app/",
   },
   {
     title: "Estate Clone",
     image: img2,
-    desc: "A real-estate clone where users can browse and filter property listings.",
+    desc: "A real-estate browsing experience with filtering and card-based presentation designed to feel clear and modern.",
     tech: ["React", "Tailwind", "JavaScript"],
-    github: "https://estate-clone-eight.vercel.app/",
+    live: "https://estate-clone-eight.vercel.app/",
   },
-
 ];
+
+function ProjectCard({ item, theme, index }) {
+  const [tilt, setTilt] = useState({ rotateX: 0, rotateY: 0, scale: 1 });
+
+  const handleMouseMove = (event) => {
+    const rect = event.currentTarget.getBoundingClientRect();
+    const x = (event.clientX - rect.left) / rect.width - 0.5;
+    const y = (event.clientY - rect.top) / rect.height - 0.5;
+
+    setTilt({
+      rotateX: (-y * 10).toFixed(2),
+      rotateY: (x * 12).toFixed(2),
+      scale: 1.02,
+    });
+  };
+
+  const resetTilt = () => {
+    setTilt({ rotateX: 0, rotateY: 0, scale: 1 });
+  };
+
+  return (
+    <motion.article
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.12 }}
+      viewport={{ once: true }}
+      className="perspective-[1600px]"
+    >
+      <div
+        onMouseMove={handleMouseMove}
+        onMouseLeave={resetTilt}
+        className={`group relative h-full overflow-hidden rounded-[2rem] border backdrop-blur-xl transition-all duration-300 ${
+          theme === "dark"
+            ? "border-white/10 bg-white/5"
+            : "border-gray-200 bg-white"
+        }`}
+        style={{
+          transform: `perspective(1600px) rotateX(${tilt.rotateX}deg) rotateY(${tilt.rotateY}deg) scale(${tilt.scale})`,
+          transformStyle: "preserve-3d",
+        }}
+      >
+        <div className="absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_top,rgba(59,130,246,0.22),transparent_38%),linear-gradient(135deg,rgba(59,130,246,0.12),transparent_55%)]" />
+        <div className="absolute inset-0 border border-white/5 opacity-0 transition duration-500 group-hover:opacity-100" />
+
+        <a
+          href={item.live}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative block overflow-hidden"
+          style={{ transform: "translateZ(24px)" }}
+        >
+          <img
+            src={item.image}
+            alt={item.title}
+            className="h-60 w-full object-cover transition duration-700 group-hover:scale-110"
+          />
+
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-80" />
+          <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-4 py-2 text-xs font-semibold text-white backdrop-blur-md">
+            <Sparkles size={14} />
+            Featured Work
+          </div>
+          <div className="absolute bottom-5 right-5 rounded-full border border-white/20 bg-black/35 px-4 py-2 text-xs font-semibold text-white backdrop-blur-md">
+            3D hover
+          </div>
+        </a>
+
+        <div
+          className="relative space-y-5 p-6 sm:p-7"
+          style={{ transform: "translateZ(32px)" }}
+        >
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <h3 className="text-2xl font-bold">{item.title}</h3>
+              <p className="mt-2 text-sm leading-7 opacity-85">{item.desc}</p>
+            </div>
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-500">
+              <Layers3 size={20} />
+            </div>
+          </div>
+
+          <div className="flex flex-wrap gap-2">
+            {item.tech.map((tech) => (
+              <span
+                key={tech}
+                className="rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-500"
+              >
+                {tech}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap items-center gap-3 pt-1">
+            <a
+              href={item.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full bg-blue-500 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-600"
+            >
+              <Globe size={16} />
+              View Live
+              <ArrowUpRight size={16} />
+            </a>
+            {item.code ? (
+              <a
+                href={item.code}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-medium transition ${
+                  theme === "dark"
+                    ? "border-white/15 text-white hover:bg-white/10"
+                    : "border-gray-300 text-gray-800 hover:bg-gray-100"
+                }`}
+              >
+                <Github size={16} />
+                Source
+              </a>
+            ) : null}
+          </div>
+        </div>
+      </div>
+    </motion.article>
+  );
+}
+
 export default function Project() {
   const { theme } = useTheme();
 
   return (
     <section
       id="projects"
-      className={`py-20 px-6 ${
-        theme === "dark"
-          ? "bg-[#0D0D0F] text-[#9BABAB]"
-          : "bg-[#F4F9F9] text-gray-700"
+      className={`relative overflow-hidden py-24 px-6 bg-transparent ${
+        theme === "dark" ? "text-[#E5E7EB]" : "text-gray-800"
       }`}
     >
-      {/* Heading */}
-      <motion.h1
-        initial={{ opacity: 0, y: 100 }}
-        transition={{ duration: 1.5 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="text-4xl md:text-6xl font-extrabold text-center mb-14"
-      >
-        My <span className="text-blue-500">Projects</span>
-      </motion.h1>
+      <div className="absolute inset-0">
+        <div className="absolute -left-24 top-10 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl" />
+        <div className="absolute right-0 top-1/3 h-80 w-80 rounded-full bg-cyan-400/10 blur-3xl" />
+      </div>
 
-      {/* Grid */}
-      <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        transition={{ duration: 1.5 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-6xl mx-auto"
-      >
-        {projects.map((item, index) => (
-          <div
-            key={index}
-            className={`group rounded-3xl overflow-hidden border transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
-              theme === "dark"
-                ? "bg-white/5 border-white/10"
-                : "bg-white border-gray-200"
-            }`}
+      <div className="relative mx-auto max-w-6xl">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          viewport={{ once: true }}
+          className="mb-14 text-center"
+        >
+          <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-blue-500">
+            <Sparkles size={14} />
+            Selected work
+          </p>
+          <h2 className="text-4xl font-extrabold md:text-6xl">
+            Projects with a{" "}
+            <span className="text-blue-500">3D showcase feel</span>
+          </h2>
+          <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-gray-500 md:text-base">
+            I kept your existing work and upgraded the presentation so each card
+            feels more premium, interactive, and visually memorable.
+          </p>
+        </motion.div>
+
+        <div className="grid gap-8 md:grid-cols-2">
+          {projects.map((item, index) => (
+            <ProjectCard
+              key={item.title}
+              item={item}
+              theme={theme}
+              index={index}
+            />
+          ))}
+        </div>
+
+        <div className="mt-14 flex justify-center">
+          <Link
+            to="/projects"
+            className="inline-flex items-center gap-2 rounded-full border border-blue-500 px-6 py-3 text-sm font-medium text-blue-500 transition hover:bg-blue-500 hover:text-white"
           >
-            {/* IMAGE — FULL CLICKABLE */}
-            <a
-              href={item.live || item.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative block overflow-hidden"
-            >
-              <img
-                src={item.image}
-                alt={item.title}
-                className="w-full h-56 object-cover transition duration-500 group-hover:scale-110"
-              />
-
-              {/* subtle hover overlay */}
-              <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition" />
-            </a>
-
-            {/* Content */}
-            <div className="p-6 space-y-4">
-              <h3 className="text-2xl font-bold">{item.title}</h3>
-
-              <p className="text-sm leading-relaxed opacity-90">{item.desc}</p>
-
-              {/* Tech stack */}
-              <div className="flex flex-wrap gap-2 pt-2">
-                {item.tech.map((tech) => (
-                  <span
-                    key={tech}
-                    className="text-xs px-3 py-1 rounded-full bg-blue-500/10 text-blue-500"
-                  >
-                    {tech}
-                  </span>
-                ))}
-              </div>
-
-              {/* Footer */}
-              <div className="flex items-center justify-between pt-4">
-                <span className="flex items-center gap-2 text-xs text-green-500">
-                  <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                  Live & Maintained
-                </span>
-
-                <a
-                  href={item.live || item.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sm font-medium text-blue-500 hover:underline"
-                >
-                  View Project →
-                </a>
-              </div>
-            </div>
-          </div>
-        ))}
-      </motion.div>
+            View all projects
+            <ArrowUpRight size={16} />
+          </Link>
+        </div>
+      </div>
     </section>
   );
 }

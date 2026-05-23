@@ -1,8 +1,7 @@
-import React from "react";
-import { useTheme } from "../context/ThemeContext";
-import Img from "../assets/Man1.jpg";
-import { Award, GraduationCap } from "lucide-react";
 import { motion } from "framer-motion";
+import { Award, GraduationCap } from "lucide-react";
+import Img from "../assets/Man1.jpg";
+import { useTheme } from "../context/ThemeContext";
 
 const About = () => {
   const { theme } = useTheme();
@@ -10,119 +9,122 @@ const About = () => {
   return (
     <section
       id="About"
-      className={`w-full py-20 flex flex-col items-center ${
-        theme === "dark"
-          ? "bg-[#0D0D0F] text-[#9BABAB]"
-          : "bg-[#F4F9F9] text-gray-700"
-      } `}
+      className={`relative w-full flex flex-col items-center py-24 bg-transparent ${
+        theme === "dark" ? "text-[#9BABAB]" : "text-gray-700"
+      }`}
     >
-      {/* Heading */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+        viewport={{ once: true }}
+        className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-blue-500"
+      >
+        About me
+      </motion.div>
+
       <motion.h1
-        initial={{ opacity: 0, y: 100 }}
-        transition={{ duration: 1.5 }}
+        initial={{ opacity: 0, y: 80 }}
+        transition={{ duration: 0.9 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-4xl md:text-6xl font-extrabold tracking-tight mb-6"
+        className="mb-6 px-6 text-center text-4xl font-black tracking-tight md:text-6xl"
       >
-        About <span className="text-blue-500">Me</span>
+        Building interfaces that feel{" "}
+        <span className="text-blue-500">clean and alive</span>
       </motion.h1>
 
-      {/* Profile Image */}
-      <div className="relative mt-6 mb-8">
-        <div className="absolute inset-0 rounded-full blur-xl bg-blue-500/30"></div>
+      <div className="relative mb-8">
+        <div className="absolute inset-0 rounded-full bg-blue-500/30 blur-xl" />
         <img
           src={Img}
           alt="Mohit Kumar"
-          className="relative w-40 h-40 rounded-full border-4 border-blue-500 object-cover"
+          className="relative h-40 w-40 rounded-full border-4 border-blue-500 object-cover shadow-[0_20px_80px_rgba(59,130,246,0.35)]"
         />
       </div>
 
-      {/* About Text */}
       <motion.p
-        initial={{ opacity: 0, y: 100 }}
-        transition={{ duration: 1.5 }}
+        initial={{ opacity: 0, y: 80 }}
+        transition={{ duration: 0.9 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="max-w-4xl text-center text-lg leading-relaxed px-6"
+        className="max-w-4xl rounded-[2rem] border border-white/10 bg-white/5 px-6 py-8 text-center text-lg leading-relaxed backdrop-blur-xl"
       >
-        Hi, I’m <span className="font-semibold text-blue-500">Mohit Kumar</span>
-        , a Frontend Web Developer who loves building clean, fast, and
-        responsive web applications. I work with HTML, CSS, JavaScript, React,
-        and modern UI tools to create smooth and engaging user experiences.
+        Hi, I am <span className="font-semibold text-blue-500">Mohit Kumar</span>,
+        a Frontend Web Developer who enjoys turning ideas into clean, fast, and
+        responsive web experiences. I care about spacing, hierarchy, motion, and
+        the small details that make a UI feel finished.
       </motion.p>
 
-      {/* Section Title */}
       <motion.h2
-        initial={{ opacity: 0, y: 100 }}
-        transition={{ duration: 1.5 }}
+        initial={{ opacity: 0, y: 80 }}
+        transition={{ duration: 0.9 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-3xl font-bold mt-16 mb-10"
+        className="mt-16 mb-10 text-3xl font-bold"
       >
         What I Do
       </motion.h2>
 
-      {/* Cards */}
       <motion.div
-        initial={{ opacity: 0, y: 100 }}
-        transition={{ duration: 1.5 }}
+        initial={{ opacity: 0, y: 80 }}
+        transition={{ duration: 0.9 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl w-full px-6"
+        className="grid w-full max-w-6xl grid-cols-1 gap-8 px-6 md:grid-cols-2"
       >
-        {/* Experience */}
         <div
-          className={`group p-8 rounded-3xl border backdrop-blur-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
+          className={`group rounded-3xl border p-8 backdrop-blur-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
             theme === "dark"
-              ? "bg-white/5 border-white/10"
-              : "bg-white border-gray-200"
+              ? "border-white/10 bg-white/5"
+              : "border-white/50 bg-white/80"
           }`}
         >
-          <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-500 mb-4 group-hover:scale-110 transition">
+          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-500 transition group-hover:scale-110">
             <Award size={28} />
           </div>
 
-          <h3 className="text-2xl font-bold mb-2">Experience</h3>
-          <p className="text-base opacity-90">
-            2+ years of experience <br /> Self-Employed <br /> Freelance Jan
-            2023 – Jan 2025 <br />
+          <h3 className="mb-2 text-2xl font-bold">Experience</h3>
+          <p className="text-base leading-7 opacity-90">
+            2+ years of experience <br />
+            Self-employed <br />
+            Freelance Jan 2023 - Jan 2025 <br />
             <span className="font-semibold text-blue-500">
               Frontend Developer
             </span>
           </p>
         </div>
 
-        {/* Education */}
         <div
-          className={`group p-8 rounded-3xl border backdrop-blur-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
+          className={`group rounded-3xl border p-8 backdrop-blur-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
             theme === "dark"
-              ? "bg-white/5 border-white/10"
-              : "bg-white border-gray-200"
+              ? "border-white/10 bg-white/5"
+              : "border-white/50 bg-white/80"
           }`}
         >
-          <div className="w-14 h-14 flex items-center justify-center rounded-xl bg-blue-500/10 text-blue-500 mb-4 group-hover:scale-110 transition">
+          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-500 transition group-hover:scale-110">
             <GraduationCap size={28} />
           </div>
 
-          <h3 className="text-2xl font-bold mb-4">Education</h3>
+          <h3 className="mb-4 text-2xl font-bold">Education</h3>
 
-          <ul className="space-y-4 text-sm">
+          <ul className="space-y-4 text-sm leading-7">
             <li>
               <span className="font-semibold text-blue-500">B.Tech (CSE)</span>
               <br />
-              SBSSU <span className="opacity-70">(2023 – 2027)</span>
+              SBSSU <span className="opacity-70">(2023 - 2027)</span>
             </li>
 
             <li>
               <span className="font-semibold">12th</span>
               <br />
-              S.P.N College <span className="opacity-70">(2022 – 2023)</span>
+              S.P.N College <span className="opacity-70">(2022 - 2023)</span>
             </li>
 
             <li>
               <span className="font-semibold">10th</span>
               <br />
-              D.A.V School <span className="opacity-70">(2020 – 2021)</span>
+              D.A.V School <span className="opacity-70">(2020 - 2021)</span>
             </li>
           </ul>
         </div>

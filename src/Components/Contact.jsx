@@ -1,116 +1,199 @@
-import React from "react";
-import { useTheme } from "../context/ThemeContext";
+import { ArrowUpRight, Github, Linkedin, Mail, MapPin, Send } from "lucide-react";
+import { useState } from "react";
 import { toast } from "react-toastify";
-import { Mail, User, MessageSquare } from "lucide-react";
-import { motion } from "framer-motion";
+import { useTheme } from "../context/ThemeContext";
+
+const CONTACT_EMAIL = "mk0641137@gmail.com";
 
 const Contact = () => {
   const { theme } = useTheme();
-  const [result, setResult] = React.useState("");
+  const [form, setForm] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
 
-  const onSubmit = async (event) => {
-    event.preventDefault();
-    setResult("Sending...");
-    const formData = new FormData(event.target);
-
-    formData.append("access_key", "bb1fdb7d-2998-416f-8f21-6f3c119a3d55");
-
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      body: formData,
-    });
-
-    const data = await response.json();
-
-    if (data.success) {
-      setResult("");
-      toast.success("Message sent successfully 🚀");
-      event.target.reset();
-    } else {
-      toast.error(data.message);
-      setResult("");
-    }
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
+    if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
+      toast.error("Please fill in all fields.");
+      return;
+    }
+
+    const subject = encodeURIComponent(`Portfolio enquiry from ${form.name}`);
+    const body = encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`,
+    );
+
+    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+    toast.success("Opening your email app...");
+
+    setForm({ name: "", email: "", message: "" });
+  };
+
+  const links = [
+    {
+      label: "LinkedIn",
+      href: "https://www.linkedin.com/in/mohit-kumar-300b63311/",
+      icon: Linkedin,
+    },
+    {
+      label: "GitHub",
+      href: "https://github.com/Mohitverma-code7",
+      icon: Github,
+    },
+    {
+      label: "Email",
+      href: `mailto:${CONTACT_EMAIL}`,
+      icon: Mail,
+    },
+  ];
 
   return (
     <section
       id="contact"
-      className={`py-24 px-6 ${theme === "dark" ? "bg-[#0D0D0F] text-white" : "bg-[#F4F9F9] text-black"}`}
+      className={`relative overflow-hidden py-24 px-6 bg-transparent ${
+        theme === "dark" ? "text-white" : "text-gray-900"
+      }`}
     >
-      {/* Heading */}
-      <div className="text-center mb-14">
-        <h1 className="text-4xl md:text-6xl font-extrabold">
-          Get In <span className="text-blue-500">Touch</span>
-        </h1>
-        <p className="mt-4 max-w-md mx-auto text-sm opacity-90">
-          Have an idea or a project in mind? Let’s build something amazing
-          together.
-        </p>
+      <div className="absolute inset-0">
+        <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-blue-500/15 blur-3xl" />
       </div>
 
-      {/* Form Card */}
-      <motion.form
-        initial={{ opacity: 0, y: 100 }}
-        transition={{ duration: 1.5 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        onSubmit={onSubmit}
-        className={`max-w-3xl mx-auto p-8 md:p-10 rounded-3xl border backdrop-blur-lg transition  ${theme === "dark" ? "bg-[#0A0A09] text-white" : "bg-white text-black"}`}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Name */}
-          <div>
-            <label className="text-sm font-medium flex items-center gap-2 mb-2">
-              <User size={16} /> Your Name
-            </label>
-            <input
-              type="text"
-              name="Name"
-              placeholder="John Doe"
-              required
-              className="w-full px-4 py-3 rounded-xl border border-gray-700 bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+      <div className="relative mx-auto grid max-w-6xl gap-8 lg:grid-cols-[0.95fr_1.05fr]">
+        <div
+          className={`rounded-[2rem] border p-8 backdrop-blur-xl ${
+            theme === "dark"
+              ? "border-white/10 bg-white/5"
+              : "border-gray-200 bg-white"
+          }`}
+        >
+          <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-blue-500">
+            <Send size={14} />
+            Contact
+          </p>
+          <h2 className="text-4xl font-extrabold md:text-5xl">
+            Let&apos;s build something{" "}
+            <span className="text-blue-500">worth showing</span>
+          </h2>
+          <p className="mt-4 text-sm leading-7 text-gray-500 md:text-base">
+            If you need a frontend developer for a portfolio, landing page, or
+            polished React interface, this is where you can reach me quickly.
+          </p>
+
+          <div className="mt-8 space-y-4">
+            <div className="flex items-center gap-3 rounded-2xl border border-blue-500/20 bg-blue-500/10 px-4 py-4">
+              <MapPin className="text-blue-500" size={18} />
+              <div>
+                <p className="text-sm font-semibold">Based in India</p>
+                <p className="text-xs text-gray-500">Available for remote work</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-3 rounded-2xl border border-blue-500/20 bg-blue-500/10 px-4 py-4">
+              <Mail className="text-blue-500" size={18} />
+              <div>
+                <p className="text-sm font-semibold">{CONTACT_EMAIL}</p>
+                <p className="text-xs text-gray-500">Best for direct enquiries</p>
+              </div>
+            </div>
           </div>
 
-          {/* Email */}
-          <div>
-            <label className="text-sm font-medium flex items-center gap-2 mb-2">
-              <Mail size={16} /> Your Email
-            </label>
-            <input
-              type="email"
-              name="email"
-              placeholder="john@example.com"
-              required
-              className="w-full px-4 py-3 rounded-xl border border-gray-700 bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
+          <div className="mt-8 flex flex-wrap gap-3">
+            {links.map((link) => {
+              const Icon = link.icon;
+              return (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`inline-flex items-center gap-2 rounded-full border px-4 py-3 text-sm font-medium transition ${
+                    theme === "dark"
+                      ? "border-white/10 text-white hover:bg-white/10"
+                      : "border-gray-300 text-gray-800 hover:bg-gray-100"
+                  }`}
+                >
+                  <Icon size={16} />
+                  {link.label}
+                  <ArrowUpRight size={16} />
+                </a>
+              );
+            })}
           </div>
         </div>
 
-        {/* Message */}
-        <div className="mt-6">
-          <label className="text-sm font-medium flex items-center gap-2 mb-2">
-            <MessageSquare size={16} /> Message
+        <form
+          onSubmit={handleSubmit}
+          className={`rounded-[2rem] border p-8 backdrop-blur-xl ${
+            theme === "dark"
+              ? "border-white/10 bg-white/5"
+              : "border-gray-200 bg-white"
+          }`}
+        >
+          <div className="grid gap-4 sm:grid-cols-2">
+            <label className="space-y-2">
+              <span className="text-sm font-medium">Name</span>
+              <input
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                type="text"
+                placeholder="Your name"
+                className={`w-full rounded-2xl border px-4 py-3 outline-none transition focus:border-blue-500 ${
+                  theme === "dark"
+                    ? "border-white/10 bg-black/20 text-white placeholder:text-gray-500"
+                    : "border-gray-200 bg-[#F8FBFB] text-gray-900 placeholder:text-gray-400"
+                }`}
+              />
+            </label>
+            <label className="space-y-2">
+              <span className="text-sm font-medium">Email</span>
+              <input
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                type="email"
+                placeholder="you@example.com"
+                className={`w-full rounded-2xl border px-4 py-3 outline-none transition focus:border-blue-500 ${
+                  theme === "dark"
+                    ? "border-white/10 bg-black/20 text-white placeholder:text-gray-500"
+                    : "border-gray-200 bg-[#F8FBFB] text-gray-900 placeholder:text-gray-400"
+                }`}
+              />
+            </label>
+          </div>
+
+          <label className="mt-4 block space-y-2">
+            <span className="text-sm font-medium">Message</span>
+            <textarea
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              rows="6"
+              placeholder="Tell me about your project or role."
+              className={`w-full rounded-2xl border px-4 py-3 outline-none transition focus:border-blue-500 ${
+                theme === "dark"
+                  ? "border-white/10 bg-black/20 text-white placeholder:text-gray-500"
+                  : "border-gray-200 bg-[#F8FBFB] text-gray-900 placeholder:text-gray-400"
+              }`}
+            />
           </label>
-          <textarea
-            name="Message"
-            placeholder="Tell me about your project..."
-            required
-            rows="5"
-            className="w-full px-4 py-3 rounded-xl border border-gray-700 bg-transparent resize-none focus:outline-none focus:ring-2 focus:ring-blue-500"
-          ></textarea>
-        </div>
 
-        {/* Submit */}
-        <div className="mt-8 text-center">
           <button
             type="submit"
-            className="px-10 py-3 rounded-full font-semibold text-white bg-blue-500 hover:bg-blue-600 transition shadow-lg"
+            className="mt-6 inline-flex items-center gap-2 rounded-full bg-blue-500 px-6 py-3 text-sm font-medium text-white transition hover:bg-blue-600"
           >
-            {result || "Send Message"}
+            Send Message
+            <Send size={16} />
           </button>
-        </div>
-      </motion.form>
+        </form>
+      </div>
     </section>
   );
 };

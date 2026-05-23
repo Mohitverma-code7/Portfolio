@@ -11,7 +11,7 @@ export default function VisitorBox() {
     // Increment visitor count once per user session
     if (!sessionStorage.getItem("visited")) {
       // Only increment in production or once per session
-      if (process.env.NODE_ENV === "production" || !process.env.NODE_ENV) {
+      if (import.meta.env.PROD) {
         runTransaction(visitRef, (current) => (current || 0) + 1);
       }
       sessionStorage.setItem("visited", "true");

@@ -7,11 +7,9 @@ const Resume = () => {
   const { theme } = useTheme();
   return (
     <div
-      className={` max-w-full  h-full ${
-        theme === "dark"
-          ? "bg-[#0D0D0F] text-[#9BABAB]"
-          : "bg-[#F4F9F9] text-gray-700"
-      } `}
+      className={`max-w-full h-full bg-transparent ${
+        theme === "dark" ? "text-[#9BABAB]" : "text-gray-700"
+      }`}
     >
       <Navbar />
       <div className="  ">

@@ -40,10 +40,8 @@ const Icons = () => {
 
   return (
     <div
-      className={`px-6 py-20 ${
-        theme === "dark"
-          ? "bg-[#0D0D0F] text-[#9BABAB]"
-          : "bg-[#F4F9F9] text-gray-700"
+      className={`px-6 py-20 bg-transparent ${
+        theme === "dark" ? "text-[#9BABAB]" : "text-gray-700"
       }`}
     >
       <motion.div

@@ -46,10 +46,8 @@ const Article = () => {
 
   return (
     <section
-      className={`py-40 px-6 ${
-        theme === "dark"
-          ? "bg-[#0D0D0F] text-[#9BABAB]"
-          : "bg-[#F4F9F9] text-gray-700"
+      className={`py-40 px-6 bg-transparent ${
+        theme === "dark" ? "text-[#9BABAB]" : "text-gray-700"
       }`}
     >
       <Navbar />
