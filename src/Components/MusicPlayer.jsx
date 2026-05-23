@@ -1,12 +1,10 @@
 import { useRef, useState, useEffect } from "react";
 import { Play, Pause, SkipForward, SkipBack } from "lucide-react";
-import { useTheme } from "../context/ThemeContext";
 import { songs } from "../Songs";
 
 export default function MusicPlayer() {
   const audioRef = useRef(null);
   const progressRef = useRef(null);
-  const { theme } = useTheme();
 
   const [index, setIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -83,26 +81,24 @@ export default function MusicPlayer() {
 
   return (
     <div
-      className={`max-w-xl w-fit md:w-full border rounded-xl p-4 shadow-sm ${
-        theme === "dark" ? "bg-[#0A0A09] text-white" : "bg-white"
-      }`}
+      className="ui-surface ui-surface-strong max-w-xl w-fit md:w-full p-4 text-white"
     >
       {/* Song Info */}
       <div className="flex items-center gap-4 md:gap-3">
-        <img src={song.cover} className="w-12 h-12 rounded-md" />
+        <img src={song.cover} className="h-12 w-12 rounded-xl object-cover" />
         <div className="flex-1">
           <p className="text-sm font-medium">{song.title}</p>
-          <p className="text-xs text-gray-500">{song.artist}</p>
+          <p className="text-xs text-gray-300">{song.artist}</p>
         </div>
 
         <div className="flex gap-2">
-          <button onClick={prevSong}>
+          <button onClick={prevSong} className="rounded-full p-2 hover:bg-white/10">
             <SkipBack size={18} />
           </button>
-          <button onClick={togglePlay}>
+          <button onClick={togglePlay} className="rounded-full p-2 hover:bg-white/10">
             {isPlaying ? <Pause size={18} /> : <Play size={18} />}
           </button>
-          <button onClick={nextSong}>
+          <button onClick={nextSong} className="rounded-full p-2 hover:bg-white/10">
             <SkipForward size={18} />
           </button>
         </div>
@@ -113,18 +109,14 @@ export default function MusicPlayer() {
         <div
           ref={progressRef}
           onClick={handleProgressClick}
-          className={`h-1 ${
-            theme === "dark" ? "bg-gray-700 " : "bg-gray-300"
-          } cursor-pointer relative `}
+          className="relative h-1 cursor-pointer bg-white/10"
         >
           <div
-            className={`h-1 transition-all duration-300 ${
-              theme === "dark" ? "bg-white" : "bg-black"
-            }`}
+            className="h-1 bg-gradient-to-r from-[#ff2d55] via-[#ff6b8a] to-[#ff9f43] transition-all duration-300"
             style={{ width: `${progress}%` }}
           ></div>
         </div>
-        <div className="flex justify-between text-xs text-gray-500 mt-1">
+        <div className="mt-1 flex justify-between text-xs text-gray-300">
           <span>{formatTime(currentTime)}</span>
           <span>{formatTime(duration)}</span>
         </div>

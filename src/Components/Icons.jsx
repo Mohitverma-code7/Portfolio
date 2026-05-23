@@ -52,7 +52,7 @@ const Icons = () => {
         className="max-w-6xl mx-auto"
       >
         <h3 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-center mb-20">
-          Tech<span className="text-blue-500"> Skills</span>
+          Tech<span className="text-[#ff4d6d]"> Skills</span>
         </h3>
 
         {/* MOBILE / TABLET */}
@@ -66,7 +66,7 @@ const Icons = () => {
           </IconLink>
 
           <IconLink href="https://www.typescriptlang.org">
-            <div className={iconBox}><SiTypescript className={`${iconStyle} text-blue-400`} /></div>
+            <div className={iconBox}><SiTypescript className={`${iconStyle} text-[#ff6b8a]`} /></div>
           </IconLink>
 
           <IconLink href="https://nodejs.org">
@@ -98,7 +98,7 @@ const Icons = () => {
           </IconLink>
 
           <IconLink href="https://developer.mozilla.org/en-US/docs/Web/CSS">
-            <div className={iconBox}><FaCss3Alt className={`${iconStyle} text-blue-500`} /></div>
+            <div className={iconBox}><FaCss3Alt className={`${iconStyle} text-[#ff4d6d]`} /></div>
           </IconLink>
 
           <IconLink href="https://git-scm.com">
@@ -111,7 +111,7 @@ const Icons = () => {
           <div className="flex justify-center gap-16 mb-16">
             <IconLink href="https://react.dev"><div className={iconBox}><FaReact className={`${iconStyle} text-cyan-400`} /></div></IconLink>
             <IconLink href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><div className={iconBox}><FaJs className={`${iconStyle} text-yellow-400`} /></div></IconLink>
-            <IconLink href="https://www.typescriptlang.org"><div className={iconBox}><SiTypescript className={`${iconStyle} text-blue-400`} /></div></IconLink>
+            <IconLink href="https://www.typescriptlang.org"><div className={iconBox}><SiTypescript className={`${iconStyle} text-[#ff6b8a]`} /></div></IconLink>
             <IconLink href="https://nodejs.org"><div className={iconBox}><FaNodeJs className={`${iconStyle} text-green-400`} /></div></IconLink>
             <IconLink href="https://github.com"><div className={iconBox}><FaGithub className={`${iconStyle} text-gray-300`} /></div></IconLink>
           </div>
@@ -125,7 +125,7 @@ const Icons = () => {
 
           <div className="flex justify-center gap-16">
             <IconLink href="https://developer.mozilla.org/en-US/docs/Web/HTML"><div className={iconBox}><FaHtml5 className={`${iconStyle} text-orange-500`} /></div></IconLink>
-            <IconLink href="https://developer.mozilla.org/en-US/docs/Web/CSS"><div className={iconBox}><FaCss3Alt className={`${iconStyle} text-blue-500`} /></div></IconLink>
+            <IconLink href="https://developer.mozilla.org/en-US/docs/Web/CSS"><div className={iconBox}><FaCss3Alt className={`${iconStyle} text-[#ff4d6d]`} /></div></IconLink>
             <IconLink href="https://git-scm.com"><div className={iconBox}><FaGitAlt className={`${iconStyle} text-red-500`} /></div></IconLink>
           </div>
         </div>

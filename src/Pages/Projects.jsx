@@ -1,4 +1,4 @@
-import { ArrowUpRight, Github, Globe, Layers3, Sparkles } from "lucide-react";
+import { ArrowUpRight, Github, Globe, Sparkles } from "lucide-react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useTheme } from "../context/ThemeContext";
@@ -9,18 +9,24 @@ import img3 from "../assets/mintly.png";
 
 const projects = [
   {
+    number: "01",
     title: "Mintlify Clone",
     image: img3,
     desc: "A polished documentation-style experience inspired by Mintlify, built with a strong focus on layout, hierarchy, and smooth interaction.",
     tech: ["JavaScript", "React", "Tailwind"],
     live: "https://mintlify-lyart.vercel.app/",
+    focus: "Documentation UI",
+    vibe: "Editorial and polished",
   },
   {
+    number: "02",
     title: "Estate Clone",
     image: img2,
     desc: "A real-estate browsing experience with filtering and card-based presentation designed to feel clear and modern.",
     tech: ["React", "Tailwind", "JavaScript"],
     live: "https://estate-clone-eight.vercel.app/",
+    focus: "Property browsing",
+    vibe: "Clean and conversion-first",
   },
 ];
 
@@ -43,17 +49,16 @@ const Projects = () => {
             transition={{ duration: 0.7 }}
             className="mb-14 text-center"
           >
-            <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-blue-500">
+            <p className="mb-3 inline-flex items-center gap-2 rounded-full border border-[#ff2d55]/20 bg-[#ff2d55]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#ff4d6d]">
               <Sparkles size={14} />
               Full showcase
             </p>
             <h1 className="text-4xl font-black md:text-6xl">
-              My <span className="text-blue-500">Projects</span>
+              My <span className="text-[#ff4d6d]">Projects</span>
             </h1>
             <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-gray-500 md:text-base">
-              A dedicated page for the work I have shipped, with direct access to
-              the live versions and a presentation that matches the rest of the
-              portfolio.
+              A dedicated page for the work I have shipped, presented like a
+              mini case study instead of a basic gallery.
             </p>
           </motion.div>
 
@@ -65,12 +70,11 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.12 }}
                 viewport={{ once: true }}
-                className={`group relative overflow-hidden rounded-[2rem] border backdrop-blur-xl ${
-                  theme === "dark"
-                    ? "border-white/10 bg-white/5"
-                    : "border-white/60 bg-white/80"
-                }`}
+                className="group relative overflow-hidden rounded-[2.5rem] border border-white/10 bg-white/5 backdrop-blur-xl"
               >
+                <div className="absolute left-0 top-0 h-full w-1 bg-gradient-to-b from-[#ff2d55] via-[#ff6b8a] to-transparent opacity-85" />
+                <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-transparent via-[#ff2d55] to-transparent opacity-75" />
+
                 <a
                   href={item.live}
                   target="_blank"
@@ -82,23 +86,49 @@ const Projects = () => {
                     alt={item.title}
                     className="h-64 w-full object-cover transition duration-700 group-hover:scale-110"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent opacity-85" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/78 via-black/12 to-transparent opacity-90" />
                   <div className="absolute left-5 top-5 flex items-center gap-2 rounded-full border border-white/20 bg-black/30 px-4 py-2 text-xs font-semibold text-white backdrop-blur-md">
                     <Sparkles size={14} />
-                    Featured Work
+                    Case {item.number}
+                  </div>
+                  <div className="absolute bottom-5 left-5 rounded-full border border-white/20 bg-black/35 px-4 py-2 text-xs font-semibold text-white backdrop-blur-md">
+                    {item.focus}
+                  </div>
+                  <div className="absolute bottom-5 right-5 rounded-full border border-white/20 bg-black/35 px-4 py-2 text-xs font-semibold text-white backdrop-blur-md">
+                    {item.vibe}
                   </div>
                 </a>
 
-                <div className="space-y-5 p-7">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h2 className="text-2xl font-bold">{item.title}</h2>
-                      <p className="mt-2 text-sm leading-7 opacity-85">
-                        {item.desc}
+                <div className="space-y-6 p-7">
+                  <div>
+                    <div className="mb-3 flex items-center gap-3">
+                    <span className="inline-flex h-9 w-9 items-center justify-center rounded-2xl border border-[#ff2d55]/20 bg-[#ff2d55]/10 text-xs font-bold text-[#ff4d6d]">
+                      {item.number}
+                    </span>
+                      <p className="text-xs uppercase tracking-[0.35em] text-[#ff6b8a]/80">
+                        Featured project
                       </p>
                     </div>
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-500">
-                      <Layers3 size={20} />
+                    <h2 className="text-2xl font-bold md:text-3xl">
+                      {item.title}
+                    </h2>
+                    <p className="mt-3 max-w-xl text-sm leading-7 opacity-85">
+                      {item.desc}
+                    </p>
+                  </div>
+
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <div className="rounded-2xl border border-white/10 bg-black/10 p-4 backdrop-blur-sm">
+                      <p className="text-xs uppercase tracking-[0.3em] text-gray-400">
+                        Focus
+                      </p>
+                      <p className="mt-2 text-sm font-semibold">{item.focus}</p>
+                    </div>
+                    <div className="rounded-2xl border border-white/10 bg-black/10 p-4 backdrop-blur-sm">
+                      <p className="text-xs uppercase tracking-[0.3em] text-gray-400">
+                        Style
+                      </p>
+                      <p className="mt-2 text-sm font-semibold">{item.vibe}</p>
                     </div>
                   </div>
 
@@ -106,7 +136,7 @@ const Projects = () => {
                     {item.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs font-medium text-blue-500"
+                        className="rounded-full border border-[#ff2d55]/20 bg-[#ff2d55]/10 px-3 py-1 text-xs font-medium text-[#ff4d6d] shadow-sm"
                       >
                         {tech}
                       </span>
@@ -118,7 +148,7 @@ const Projects = () => {
                       href={item.live}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-full bg-blue-500 px-5 py-3 text-sm font-medium text-white transition hover:bg-blue-600"
+                      className="inline-flex items-center gap-2 rounded-full bg-[#ff2d55] px-5 py-3 text-sm font-medium text-white shadow-[0_14px_35px_rgba(255,45,85,0.35)] transition hover:-translate-y-0.5 hover:bg-[#ff6b8a]"
                     >
                       <Globe size={16} />
                       View Live
@@ -131,7 +161,7 @@ const Projects = () => {
                       className={`inline-flex items-center gap-2 rounded-full border px-5 py-3 text-sm font-medium transition ${
                         theme === "dark"
                           ? "border-white/15 text-white hover:bg-white/10"
-                          : "border-gray-300 text-gray-800 hover:bg-gray-100"
+                          : "border-white/50 text-gray-800 hover:bg-white/70"
                       }`}
                     >
                       <Github size={16} />
@@ -146,7 +176,7 @@ const Projects = () => {
           <div className="mt-14 flex justify-center">
             <Link
               to="/contact"
-              className="inline-flex items-center gap-2 rounded-full border border-blue-500 px-6 py-3 text-sm font-medium text-blue-500 transition hover:bg-blue-500 hover:text-white"
+              className="inline-flex items-center gap-2 rounded-full border border-[#ff2d55] px-6 py-3 text-sm font-medium text-[#ff4d6d] transition hover:bg-[#ff2d55] hover:text-white"
             >
               Want something similar?
               <ArrowUpRight size={16} />

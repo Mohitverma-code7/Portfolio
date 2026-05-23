@@ -72,7 +72,7 @@ const Header = () => {
       >
         <div className="grid items-center gap-12 lg:grid-cols-[1.08fr_0.92fr]">
           <motion.div className="order-2 text-center lg:order-1 lg:text-left">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-blue-500">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#ff2d55]/20 bg-[#ff2d55]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#ff4d6d]">
               Frontend Developer
             </div>
 
@@ -81,7 +81,7 @@ const Header = () => {
               className="text-4xl font-black leading-[1.05] sm:text-5xl md:text-6xl lg:text-7xl"
             >
               Hi, I&apos;m{" "}
-              <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-[#ff2d55]/90 via-[#ff6b8a]/80 to-[#ff2d55]/70 bg-clip-text text-transparent">
                 Mohit Kumar
               </span>
             </motion.h1>
@@ -108,7 +108,7 @@ const Header = () => {
                 ].map((tech) => (
                   <span
                     key={tech.label}
-                    className="inline-flex items-center gap-1 rounded-full border border-blue-500/20 bg-blue-500/10 px-3 py-1 text-xs text-blue-500"
+                    className="inline-flex items-center gap-1 rounded-full border border-[#ff2d55]/20 bg-[#ff2d55]/10 px-3 py-1 text-xs text-[#ff4d6d]"
                   >
                     <FontAwesomeIcon icon={tech.icon} /> {tech.label}
                   </span>
@@ -122,7 +122,7 @@ const Header = () => {
             >
               <Link
                 to="/resume"
-                className="inline-flex items-center gap-2 rounded-full border border-blue-500 px-6 py-3 font-medium text-blue-500 transition hover:bg-blue-500 hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-[#ff2d55] px-6 py-3 font-medium text-[#ff4d6d] transition hover:bg-[#ff2d55] hover:text-white"
               >
                 <NotebookPen size={16} />
                 Resume / CV
@@ -130,7 +130,7 @@ const Header = () => {
 
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 rounded-full bg-blue-500 px-6 py-3 font-medium text-white shadow-lg shadow-blue-500/25 transition hover:bg-blue-600"
+                className="inline-flex items-center gap-2 rounded-full bg-[#ff2d55] px-6 py-3 font-medium text-white shadow-lg shadow-[#ff4d6d]/25 transition hover:bg-[#ff6b8a]"
               >
                 <Navigation size={16} />
                 Get In Touch
@@ -157,7 +157,7 @@ const Header = () => {
                   rel="noreferrer"
                   whileHover={{ y: -4, scale: 1.1 }}
                   transition={{ type: "spring", stiffness: 300 }}
-                  className="rounded-full border border-white/10 bg-white/5 p-3 hover:text-blue-400"
+                  className="rounded-full border border-white/10 bg-white/5 p-3 hover:text-[#ff6b8a]"
                 >
                   <item.icon />
                 </motion.a>
@@ -183,7 +183,7 @@ const Header = () => {
             variants={imageVariant}
             className="order-1 relative mx-auto w-full max-w-md lg:order-2 lg:max-w-none"
           >
-            <div className="absolute inset-6 rounded-[2rem] bg-blue-500/20 blur-3xl" />
+            <div className="absolute inset-6 rounded-[2rem] bg-[#ff2d55]/20 blur-3xl" />
             <div className="relative overflow-hidden rounded-[2.25rem] border border-white/10 bg-white/5 p-4 shadow-[0_24px_100px_rgba(0,0,0,0.35)] backdrop-blur-2xl">
               <div className="absolute left-5 top-5 z-10 rounded-full border border-white/20 bg-black/35 px-4 py-2 text-xs font-semibold text-white backdrop-blur-md">
                 Available now

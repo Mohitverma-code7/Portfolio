@@ -13,9 +13,9 @@ const Resume = () => {
     >
       <Navbar />
       <div className="  ">
-        <p className=" text-[40px] md:text-6xl font-bold pt-30  text-center hover:underline  underline-offset-16 decoration-6 decoration-blue-700 cursor-pointer  ">
+        <p className=" text-[40px] md:text-6xl font-bold pt-30  text-center hover:underline  underline-offset-16 decoration-6 decoration-[#ff4d6d] cursor-pointer  ">
           My
-          <span className=" text-blue-700 ">Resume</span>
+          <span className=" text-[#ff4d6d] ">Resume</span>
         </p>
         <p className="text-center pt-8 text-sm md:text-base  max-w-2xl mx-auto ">
           MY PROFESSIONAL RESUME
@@ -34,7 +34,7 @@ const Resume = () => {
           href="https://drive.google.com/file/d/1HTnJQPIA6hUV_96wQkjNvw5szuxGTh0v/view?usp=drivesdk"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-6 py-3 bg-blue-700 text-white rounded-lg font-medium hover:bg-blue-800 transition"
+          className="px-6 py-3 bg-[#ff2d55] text-white rounded-lg font-medium hover:bg-[#ff6b8a] transition"
         >
           Download Resume
         </a>

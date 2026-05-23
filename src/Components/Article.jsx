@@ -40,7 +40,7 @@ const Article = () => {
         viewport={{ once: true }}
         className="text-4xl md:text-6xl font-extrabold text-center mb-14"
       >
-        My <span className="text-blue-500">Blogs</span>
+        My <span className="text-[#ff4d6d]">Blogs</span>
       </motion.h1>
 
       {/* Grid */}
@@ -54,11 +54,7 @@ const Article = () => {
         {blogs.map((blog, index) => (
           <div
             key={index}
-            className={`group rounded-3xl overflow-hidden border backdrop-blur-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
-              theme === "dark"
-                ? "bg-white/5 border-white/10"
-                : "bg-white border-gray-200"
-            }`}
+            className="ui-surface ui-surface-strong group overflow-hidden transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
           >
             {/* Image */}
             <div className="relative overflow-hidden">
@@ -73,7 +69,7 @@ const Article = () => {
                 href={blog.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center gap-2 text-white font-medium"
+                className="absolute inset-0 flex items-center justify-center gap-2 bg-gradient-to-t from-[#ff2d55]/70 via-black/35 to-black/10 font-medium text-white opacity-0 transition group-hover:opacity-100"
               >
                 <ExternalLink />
                 Read Blog
@@ -91,7 +87,7 @@ const Article = () => {
                 {blog.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="text-xs px-3 py-1 rounded-full bg-blue-500/10 text-blue-500"
+                    className="rounded-full border border-[#ff2d55]/20 bg-[#ff2d55]/10 px-3 py-1 text-xs text-[#ff4d6d]"
                   >
                     {tag}
                   </span>
@@ -103,10 +99,10 @@ const Article = () => {
       </motion.div>
 
       {/* Show all blogs */}
-      <div className="flex justify-center mt-14">
+      <div className="mt-14 flex justify-center">
         <Link
           to="/log"
-          className="px-6 py-3 rounded-full border border-blue-500 text-blue-500 hover:bg-blue-500 hover:text-white transition font-medium"
+          className="rounded-full border border-[#ff2d55] px-6 py-3 font-medium text-[#ff4d6d] transition hover:bg-[#ff2d55] hover:text-white"
         >
           Show all blogs →
         </Link>

@@ -18,7 +18,7 @@ const About = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7 }}
         viewport={{ once: true }}
-        className="mb-6 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-blue-500"
+        className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#ff2d55]/20 bg-[#ff2d55]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.3em] text-[#ff4d6d]"
       >
         About me
       </motion.div>
@@ -31,15 +31,15 @@ const About = () => {
         className="mb-6 px-6 text-center text-4xl font-black tracking-tight md:text-6xl"
       >
         Building interfaces that feel{" "}
-        <span className="text-blue-500">clean and alive</span>
+        <span className="text-[#ff4d6d]">clean and alive</span>
       </motion.h1>
 
       <div className="relative mb-8">
-        <div className="absolute inset-0 rounded-full bg-blue-500/30 blur-xl" />
+        <div className="absolute inset-0 rounded-full bg-[#ff2d55]/30 blur-xl" />
         <img
           src={Img}
           alt="Mohit Kumar"
-          className="relative h-40 w-40 rounded-full border-4 border-blue-500 object-cover shadow-[0_20px_80px_rgba(59,130,246,0.35)]"
+          className="relative h-40 w-40 rounded-full border-4 border-[#ff2d55] object-cover shadow-[0_20px_80px_rgba(255,45,85,0.35)]"
         />
       </div>
 
@@ -48,9 +48,9 @@ const About = () => {
         transition={{ duration: 0.9 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="max-w-4xl rounded-[2rem] border border-white/10 bg-white/5 px-6 py-8 text-center text-lg leading-relaxed backdrop-blur-xl"
+        className="ui-surface max-w-4xl px-6 py-8 text-center text-lg leading-relaxed"
       >
-        Hi, I am <span className="font-semibold text-blue-500">Mohit Kumar</span>,
+        Hi, I am <span className="font-semibold text-[#ff4d6d]">Mohit Kumar</span>,
         a Frontend Web Developer who enjoys turning ideas into clean, fast, and
         responsive web experiences. I care about spacing, hierarchy, motion, and
         the small details that make a UI feel finished.
@@ -74,13 +74,9 @@ const About = () => {
         className="grid w-full max-w-6xl grid-cols-1 gap-8 px-6 md:grid-cols-2"
       >
         <div
-          className={`group rounded-3xl border p-8 backdrop-blur-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
-            theme === "dark"
-              ? "border-white/10 bg-white/5"
-              : "border-white/50 bg-white/80"
-          }`}
+          className="ui-surface group ui-surface-soft p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
         >
-          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-500 transition group-hover:scale-110">
+          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#ff2d55]/10 text-[#ff4d6d] transition group-hover:scale-110">
             <Award size={28} />
           </div>
 
@@ -89,20 +85,16 @@ const About = () => {
             2+ years of experience <br />
             Self-employed <br />
             Freelance Jan 2023 - Jan 2025 <br />
-            <span className="font-semibold text-blue-500">
+            <span className="font-semibold text-[#ff4d6d]">
               Frontend Developer
             </span>
           </p>
         </div>
 
         <div
-          className={`group rounded-3xl border p-8 backdrop-blur-lg transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl ${
-            theme === "dark"
-              ? "border-white/10 bg-white/5"
-              : "border-white/50 bg-white/80"
-          }`}
+          className="ui-surface group ui-surface-soft p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
         >
-          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-500 transition group-hover:scale-110">
+          <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-[#ff2d55]/10 text-[#ff4d6d] transition group-hover:scale-110">
             <GraduationCap size={28} />
           </div>
 
@@ -110,7 +102,7 @@ const About = () => {
 
           <ul className="space-y-4 text-sm leading-7">
             <li>
-              <span className="font-semibold text-blue-500">B.Tech (CSE)</span>
+              <span className="font-semibold text-[#ff4d6d]">B.Tech (CSE)</span>
               <br />
               SBSSU <span className="opacity-70">(2023 - 2027)</span>
             </li>
