@@ -8,7 +8,7 @@ This portfolio is designed with clean UI, reusable components, and scalable arch
 
 ## 🌐 Live Demo
 
-🔗 **Portfolio:** https://your-portfolio-link.com  
+🔗 **Portfolio:** https://mohitxcodes.in  
 🔗 **GitHub Repository:** https://github.com/Mohitverma-code7/Portfolio
 
 ---
