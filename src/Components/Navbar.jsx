@@ -32,7 +32,19 @@ const Navbar = () => {
     }
   }, [isDark]);
 
-  const toggleTheme = () => setIsDark(!isDark);
+  const toggleTheme = () => {
+    const switchTheme = () => setIsDark((prev) => !prev);
+
+    if (!document.startViewTransition) {
+      // Fallback: instant switch
+      switchTheme();
+      return;
+    }
+
+    document.startViewTransition(() => {
+      switchTheme();
+    });
+  };
 
   return (
     <>
@@ -178,6 +190,7 @@ const Navbar = () => {
           </motion.div>
         )}
       </AnimatePresence>
+
     </>
   );
 };

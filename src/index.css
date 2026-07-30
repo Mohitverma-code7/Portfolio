@@ -11,6 +11,37 @@
 }
 
 /* ============================
+   VIEW TRANSITION API — theme switch animation
+   Old theme shrinks upward, new theme pushes up from bottom
+   ============================ */
+::view-transition-old(root) {
+  animation: theme-shrink-up 0.8s cubic-bezier(0.76, 0, 0.24, 1) both;
+  clip-path: inset(0 0 0 0);
+}
+
+::view-transition-new(root) {
+  animation: theme-grow-up 0.8s cubic-bezier(0.76, 0, 0.24, 1) both;
+  clip-path: inset(100% 0 0 0);
+}
+
+@keyframes theme-shrink-up {
+  to {
+    clip-path: inset(0 0 100% 0);
+  }
+}
+
+@keyframes theme-grow-up {
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Prevent name flash during transition */
+::view-transition-new(root),
+::view-transition-old(root) {
+  mix-blend-mode: normal;
+}
+/* ============================
    CSS CUSTOM PROPERTIES — DARK (default)
    ============================ */
 :root {
