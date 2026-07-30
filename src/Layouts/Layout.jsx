@@ -1,6 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Blog from "../Pages/Blog.jsx";
+import BlogPost from "../Pages/BlogPost.jsx";
 import Main from "../Pages/Main.jsx";
 import Resume from "../Pages/Resume.jsx";
 import { ThemeProvider } from "../context/ThemeContext.jsx";
@@ -17,6 +18,8 @@ const Layout = () => {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Main />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/log" element={<Blog />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/resume" element={<Resume />} />

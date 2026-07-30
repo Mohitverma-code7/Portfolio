@@ -1,33 +1,71 @@
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "../Components/Navbar";
-import Header from "../Components/Header";
-import About from "../Components/About";
-import { ThemeProvider } from "../context/ThemeContext";
-import Project from "../Components/Project";
-import Article from "../Components/Article";
-import Footer from "../Components/Footer";
-import Contact from "../Components/Contact";
-import { ToastContainer } from "react-toastify";
-import Icons from "../Components/Icons";
+import Hero from "../Components/Hero";
+import AboutSection from "../Components/AboutSection";
+import TechStack from "../Components/TechStack";
+import ProjectSection from "../Components/ProjectSection";
+import ExperienceSection from "../Components/ExperienceSection";
+import SpotifySection from "../Components/SpotifySection";
+import Certifications from "../Components/Certifications";
+import GithubSection from "../Components/GithubSection";
+import BlogPreview from "../Components/BlogPreview";
+import ContactSection from "../Components/ContactSection";
+import FooterNew from "../Components/FooterNew";
+import CursorGlow from "../Components/CursorGlow";
+import ScrollProgress from "../Components/ScrollProgress";
+import PageLoader from "../Components/PageLoader";
 import SmoothScroll from "../Components/SmoothScroll";
-import Highlights from "../Components/Highlights";
 
 const Main = () => {
+  const location = useLocation();
+  const [showLoader, setShowLoader] = useState(true);
+
+  useEffect(() => {
+    // Show loader only on first visit (session-based)
+    const hasVisited = sessionStorage.getItem("visited");
+    if (hasVisited) {
+      setShowLoader(false);
+    } else {
+      sessionStorage.setItem("visited", "true");
+    }
+  }, []);
+
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 800); // Longer delay to account for page loader
+    }
+  }, [location.hash]);
+
   return (
-    <div className="relative z-0">
-      <ThemeProvider>
-        <SmoothScroll>
-          <ToastContainer />
-          <Navbar />
-          <Header />
-          <About />
-          <Highlights />
-          <Icons />
-          <Project />
-          <Article />
-          <Contact />
-          <Footer />
-        </SmoothScroll>
-      </ThemeProvider>
+    <div className="relative z-0 bg-[#080808]">
+      {/* Preloader */}
+      {showLoader && <PageLoader />}
+
+      <SmoothScroll>
+        <CursorGlow />
+        <ScrollProgress />
+        <div className="noise-overlay" aria-hidden="true" />
+
+        <Navbar />
+        <Hero />
+        <AboutSection />
+        <TechStack />
+        <ProjectSection />
+        <ExperienceSection />
+        <SpotifySection />
+        <Certifications />
+        <GithubSection />
+        <BlogPreview />
+        <ContactSection />
+        <FooterNew />
+      </SmoothScroll>
     </div>
   );
 };

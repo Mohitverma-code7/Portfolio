@@ -1,115 +1,184 @@
-import { Menu, Moon, Sun, X } from "lucide-react";
-import Img from "../assets/Man1.jpg";
-import { useTheme } from "../context/ThemeContext";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Menu, X, ArrowUpRight, Sun, Moon, BookOpen } from "lucide-react";
+import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
-const Navbar = () => {
-  const { theme, handleToggleTheme } = useTheme();
-  const [isOpen, setIsOpen] = useState(false);
+const navLinks = [
+  { label: "About", href: "#about", isExternal: false },
+  { label: "Projects", href: "#projects", isExternal: false },
+  { label: "Experience", href: "#experience", isExternal: false },
+  { label: "Blog", href: "/blog", isRoute: true },
+  { label: "Contact", href: "#contact", isExternal: false },
+];
 
-  const navItems = [
-    { label: "About", id: "About" },
-    { label: "Skills", id: "skills" },
-    { label: "Projects", id: "projects" },
-    { label: "Blogs", id: "blog" },
-    
-  ];
+const Navbar = () => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileOpen, setIsMobileOpen] = useState(false);
+  const [isDark, setIsDark] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Theme toggle with CSS class
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.classList.remove("light");
+    } else {
+      document.documentElement.classList.add("light");
+    }
+  }, [isDark]);
+
+  const toggleTheme = () => setIsDark(!isDark);
 
   return (
-    <nav className="fixed top-0 left-0 z-50 w-full px-4 pt-4 sm:px-6">
-      <div
-        className={`mx-auto flex max-w-7xl items-center justify-between rounded-[1.75rem] border px-4 py-3 shadow-[0_30px_120px_rgba(0,0,0,0.38)] backdrop-blur-2xl transition-all sm:px-6
-        ${
-          theme === "dark"
-            ? "border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.08),rgba(255,255,255,0.03))] text-white"
-            : "border-white/70 bg-[linear-gradient(180deg,rgba(255,255,255,0.92),rgba(255,255,255,0.76))] text-gray-800"
+    <>
+      <motion.nav
+        initial={{ y: -100 }}
+        animate={{ y: 0 }}
+        transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled
+            ? "bg-[var(--nav-bg)]/80 backdrop-blur-xl border-b border-[var(--color-border)]"
+            : "bg-transparent"
         }`}
       >
-        <div className="flex items-center gap-3">
-          <HashLink smooth to="/#Header" className="flex items-center gap-3">
-            <div className="relative">
-              <div className="absolute inset-0 rounded-2xl bg-[#ff2d55]/25 blur-md" />
-              <img
-                src={Img}
-                alt="Mohit Kumar"
-                className={`relative h-11 w-11 rounded-2xl object-cover ring-2 ring-[#ff2d55]/40 transition-transform hover:scale-95 ${
-                  theme === "dark" ? "bg-yellow-300" : "bg-[#ff6b8a]"
-                }`}
-              />
+        <div className="mx-auto max-w-[1400px] flex items-center justify-between px-6 py-5 lg:px-12">
+          <button
+            onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+            className="group relative z-10 cursor-pointer"
+          >
+            <div className="flex items-center gap-2">
+              <span className="font-display text-3xl font-bold tracking-tighter text-[var(--color-text-primary)] transition-colors group-hover:text-[var(--color-accent)]">
+                MK
+              </span>
+              <span className="hidden sm:block w-1 h-1 rounded-full bg-[var(--color-accent)]" />
+              <span className="hidden sm:block text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-text-secondary)]">
+                Developer
+              </span>
             </div>
-          </HashLink>
+          </button>
 
-          <div className="hidden sm:block">
-            <p className="text-sm font-semibold leading-none">Mohit Kumar</p>
-            <p className="text-xs text-[#ff4d6d]/90">Frontend Developer</p>
+          <div className="hidden md:flex items-center gap-10">
+            {navLinks.map((link) =>
+              link.isRoute ? (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  className="relative text-sm font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)] group"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-[var(--color-accent)] transition-all duration-300 group-hover:w-full" />
+                </Link>
+              ) : (
+                <HashLink
+                  key={link.label}
+                  smooth
+                  to={link.href}
+                  className="relative text-sm font-medium text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)] group"
+                >
+                  {link.label}
+                  <span className="absolute -bottom-1 left-0 h-px w-0 bg-[var(--color-accent)] transition-all duration-300 group-hover:w-full" />
+                </HashLink>
+              )
+            )}
           </div>
-        </div>
 
-        <ul className="hidden items-center gap-8 text-sm font-medium md:flex">
-          {navItems.map((item) => (
-            <HashLink
-              key={item.id}
-              smooth
-              to={`/#${item.id}`}
-              className="group relative transition-colors hover:text-[#ff4d6d]"
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              onClick={toggleTheme}
+              className="w-9 h-9 rounded-full border border-[var(--color-border)] bg-[var(--glass-bg)] flex items-center justify-center hover:border-[rgba(79,140,255,0.4)] transition-all"
+              aria-label="Toggle theme"
             >
-              {item.label}
-              <span className="absolute -bottom-2 left-0 h-0.5 w-0 bg-[#ff2d55] transition-all duration-300 group-hover:w-full" />
+              {isDark ? <Sun size={14} className="text-[var(--color-text-secondary)]" /> : <Moon size={14} className="text-[var(--color-text-secondary)]" />}
+            </button>
+
+            <HashLink
+              smooth
+              to="#contact"
+              className="group inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--glass-bg)] px-6 py-2.5 text-sm font-medium text-[var(--color-text-primary)] transition-all hover:border-[rgba(79,140,255,0.4)] hover:bg-[rgba(79,140,255,0.08)] backdrop-blur-sm"
+            >
+              Let's Talk
+              <ArrowUpRight size={14} className="transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </HashLink>
-          ))}
-        </ul>
-
-        <div className="flex items-center gap-3">
-          <button
-            onClick={handleToggleTheme}
-            aria-label="Toggle theme"
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-[#ff2d55]/30 bg-[#ff2d55]/10 transition hover:scale-105 hover:bg-[#ff2d55]/15"
-          >
-            {theme === "dark" ? <Moon size={16} /> : <Sun size={16} />}
-          </button>
-
-          <HashLink
-            smooth
-            to="/#contact"
-            className="hidden rounded-full border border-[#ff2d55]/30 bg-[#ff2d55] px-4 py-2 text-sm font-medium text-white transition hover:bg-[#ff6b8a] md:inline-flex"
-          >
-            Contact
-          </HashLink>
+          </div>
 
           <button
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 md:hidden"
-            onClick={() => setIsOpen(!isOpen)}
-            aria-label="Open menu"
+            onClick={() => setIsMobileOpen(!isMobileOpen)}
+            className="relative z-50 flex h-10 w-10 items-center justify-center rounded-full border border-[var(--color-border)] bg-[var(--glass-bg)] md:hidden"
+            aria-label="Toggle menu"
           >
-            {isOpen ? <X /> : <Menu />}
+            {isMobileOpen ? <X size={18} /> : <Menu size={18} />}
           </button>
         </div>
-      </div>
+      </motion.nav>
 
-      {isOpen && (
-        <div
-          className={`absolute right-6 mt-4 w-56 rounded-3xl border p-4 shadow-2xl backdrop-blur-2xl
-          ${
-            theme === "dark"
-            ? "border-white/10 bg-[#0A0A09]/95 text-white"
-            : "border-white/70 bg-white/95 text-gray-800"
-          }`}
-        >
-          {navItems.map((item) => (
-            <HashLink
-              key={item.id}
-              smooth
-              to={`/#${item.id}`}
-              onClick={() => setIsOpen(false)}
-              className="block rounded-2xl px-3 py-3 transition hover:bg-[#ff2d55]/10"
-            >
-              {item.label}
-            </HashLink>
-          ))}
-        </div>
-      )}
-    </nav>
+      <AnimatePresence>
+        {isMobileOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="fixed inset-0 z-40 bg-[var(--color-bg)]/95 backdrop-blur-2xl md:hidden"
+          >
+            <div className="flex h-full flex-col items-center justify-center gap-8">
+              {navLinks.map((link, i) => (
+                <motion.div
+                  key={link.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ delay: i * 0.1, duration: 0.4 }}
+                >
+                  <HashLink
+                    smooth
+                    to={link.href}
+                    onClick={() => setIsMobileOpen(false)}
+                    className="font-display text-5xl uppercase tracking-tight text-[var(--color-text-secondary)] transition-colors hover:text-[var(--color-text-primary)]"
+                  >
+                    {link.label}
+                  </HashLink>
+                </motion.div>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ delay: 0.5, duration: 0.4 }}
+              >
+                <button
+                  onClick={toggleTheme}
+                  className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--glass-bg)] px-6 py-3 text-sm font-medium text-[var(--color-text-primary)]"
+                >
+                  {isDark ? <Sun size={16} /> : <Moon size={16} />}
+                  {isDark ? "Light Mode" : "Dark Mode"}
+                </button>
+              </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ delay: 0.6, duration: 0.4 }}
+              >
+                <HashLink
+                  smooth
+                  to="#contact"
+                  onClick={() => setIsMobileOpen(false)}
+                  className="inline-flex items-center gap-2 rounded-full border border-[var(--color-border)] bg-[var(--glass-bg)] px-8 py-3 text-base font-medium text-[var(--color-text-primary)]"
+                >
+                  Let's Talk
+                  <ArrowUpRight size={16} />
+                </HashLink>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </>
   );
 };
 
