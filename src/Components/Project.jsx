@@ -30,7 +30,7 @@ const projects = [
     number: "02",
     title: "Estate Clone",
     image: img2,
-    desc: "A real-estate browsing experience with filtering and card-based presentation designed to feel clear and modern.",
+    desc: "A real-estate browsing experience with filtering and card-baseds presentation designed to feel clear and modern.",
     tech: ["React", "Tailwind", "JavaScript"],
     live: "https://estate-clone-eight.vercel.app/",
     code: "https://github.com/yourusername/estate-clone",
