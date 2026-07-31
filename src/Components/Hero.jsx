@@ -277,7 +277,7 @@ const Hero = () => {
 
       {/* ============ MAIN CONTENT ============ */}
       <div className="mx-auto w-full max-w-[1400px] px-6 lg:px-12 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-16 xl:gap-20 items-center min-h-[85vh] py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-8 lg:gap-16 xl:gap-20 items-start min-h-[85vh] py-20">
           {/* ============ LEFT — Editorial Typography ============ */}
           <div className="relative">
             {/* Line decoration */}
@@ -330,20 +330,29 @@ const Hero = () => {
               </h2>
             </motion.div>
 
-            {/* DESCRIPTION */}
-            <motion.p
-              className="max-w-lg text-sm lg:text-base leading-relaxed mb-8"
+            {/* DESCRIPTION — two-layer technique: invisible placeholder locks height, scramble overlays on top */}
+            <motion.div
+              className="relative max-w-lg text-sm lg:text-base leading-relaxed mb-8"
               style={{ color: "var(--color-text-secondary)" }}
               variants={fadeUpVariants}
               initial="hidden"
               animate="visible"
               custom={0.55}
             >
-              <TextScramble
-                text="Building modern web applications, cross-platform mobile apps, and AI-powered digital experiences using React, React Native, Node.js, Firebase, and modern web technologies."
-                delay={1200}
-              />
-            </motion.p>
+              {/* Invisible placeholder — renders final text to lock container height */}
+              <p className="invisible font-mono" aria-hidden="true">
+                Building modern web applications, cross-platform mobile apps, and AI-powered digital experiences using React, React Native, Node.js, Firebase, and modern web technologies.
+              </p>
+              {/* Scrambling text — absolutely positioned over the placeholder */}
+              <p className="absolute inset-0 font-mono overflow-hidden">
+                <TextScramble
+                  text="Building modern web applications, cross-platform mobile apps, and AI-powered digital experiences using React, React Native, Node.js, Firebase, and modern web technologies."
+                  delay={300}
+                  speed={5}
+                  increment={1}
+                />
+              </p>
+            </motion.div>
 
             {/* CTA BUTTONS */}
             <motion.div

@@ -43,32 +43,33 @@ const Certifications = () => {
           <div className="line-decoration mb-6" />
           <span className="section-subheading mb-4 block">Credentials</span>
           <h2 className="section-heading">
-            CERTIFI
-            <br />
-            CATIONS
+            CERTIFICATIONS
           </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 lg:gap-6">
+        <div className="flex flex-wrap gap-4 lg:gap-6 justify-center">
           {certifications.map((cert, i) => (
             <motion.div
               key={cert.title}
-              className="group glass-card p-6 text-center hover:border-[#4F8CFF]/20 transition-all duration-300"
+              className="group glass-card flex items-center gap-4 px-6 py-4 hover:border-[#4F8CFF]/20 transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 * i, duration: 0.4 }}
             >
-              <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl bg-[#C6A15B]/10 mb-4 group-hover:bg-[#C6A15B]/15 transition-colors">
-                <Award size={22} className="text-[#C6A15B]" />
+              <div className="flex items-center justify-center w-10 h-10 rounded-xl bg-[#C6A15B]/10 group-hover:bg-[#C6A15B]/15 transition-colors flex-shrink-0">
+                <Award size={18} className="text-[#C6A15B]" />
               </div>
-              <h3 className="text-sm font-semibold text-[#F5F5F5] mb-1 group-hover:text-[#4F8CFF] transition-colors">
-                {cert.title}
-              </h3>
-              <p className="text-xs text-[#9B9B9B] mb-2">{cert.issuer}</p>
-              <span className="text-[10px] font-medium uppercase tracking-wider text-[#4F8CFF]/60">
-                {cert.year}
-              </span>
+              <div className="flex items-center gap-2 text-sm whitespace-nowrap">
+                <span className="font-semibold text-[#F5F5F5] group-hover:text-[#4F8CFF] transition-colors">
+                  {cert.title}
+                </span>
+                <span className="text-[#9B9B9B]">·</span>
+                <span className="text-[#9B9B9B]">{cert.issuer}</span>
+                <span className="text-[10px] font-medium uppercase tracking-wider text-[#4F8CFF]/60">
+                  {cert.year}
+                </span>
+              </div>
             </motion.div>
           ))}
         </div>

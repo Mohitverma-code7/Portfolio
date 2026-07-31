@@ -3,7 +3,7 @@ import ManImg from "../assets/Man1.jpg";
 
 const stats = [
   { label: "Projects", value: "15+" },
-  { label: "GitHub Stars", value: "120+" },
+  { label: "GitHub Stars", value: "50+" },
   { label: "Hackathons", value: "4" },
   { label: "Years Coding", value: "2+" },
   { label: "Technologies", value: "20+" },

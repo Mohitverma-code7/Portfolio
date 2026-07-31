@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const chars = "!<>-_\\/[]{}—=+*^?#________";
 
-const TextScramble = ({ text, className = "", delay = 0 }) => {
+const TextScramble = ({ text, className = "", delay = 0, speed = 30, increment = 0.333 }) => {
   const [display, setDisplay] = useState("");
   const [started, setStarted] = useState(false);
 
@@ -24,15 +24,15 @@ const TextScramble = ({ text, className = "", delay = 0 }) => {
       setDisplay(output.join(""));
 
       if (frame < text.length) {
-        frame += 1 / 3;
-        setTimeout(resolve, 30);
+        frame += increment;
+        setTimeout(resolve, speed);
       } else {
         setDisplay(text);
       }
     };
 
     setTimeout(resolve, 100);
-  }, [started, text]);
+  }, [started, text, speed, increment]);
 
   return <span className={className}>{started ? display : text}</span>;
 };

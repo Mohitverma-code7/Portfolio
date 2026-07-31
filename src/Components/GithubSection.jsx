@@ -64,9 +64,6 @@ const GithubSection = () => {
     recentCommits: liveCommits,
     loading,
     error,
-    totalRepos,
-    totalStars,
-    totalForks,
     contributionGraphUrl,
   } = useGithubData();
 
@@ -264,31 +261,6 @@ const GithubSection = () => {
               </div>
             </div>
 
-            {/* Live stats */}
-            {profile && (
-              <div className="grid grid-cols-3 gap-3 mt-6">
-                <div className="glass-card p-4 text-center">
-                  <div className="font-display text-xl text-[#4F8CFF]">{totalRepos}</div>
-                  <div className="text-[10px] uppercase tracking-wider text-[#9B9B9B] mt-1">
-                    Repos
-                  </div>
-                </div>
-                <div className="glass-card p-4 text-center">
-                  <div className="font-display text-xl text-[#4F8CFF]">{totalStars}</div>
-                  <div className="text-[10px] uppercase tracking-wider text-[#9B9B9B] mt-1">
-                    Stars
-                  </div>
-                </div>
-                <div className="glass-card p-4 text-center">
-                  <div className="font-display text-xl text-[#4F8CFF]">
-                    {profile.followers || 0}
-                  </div>
-                  <div className="text-[10px] uppercase tracking-wider text-[#9B9B9B] mt-1">
-                    Followers
-                  </div>
-                </div>
-              </div>
-            )}
           </motion.div>
         </div>
       </div>
